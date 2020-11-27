@@ -5,7 +5,7 @@ const URL = "https://bcmhealthserver.herokuapp.com/"
 
 // async means skip and then come back to it 
 // js usually executes in chronoligical order
-
+// Patients displaying 
 const getData = async() => {
     let patientsData = await axios.get(`${URL}patients`),
        {data} = patientsData
