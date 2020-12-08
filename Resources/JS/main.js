@@ -1,3 +1,6 @@
+// https://stackoverflow.com/questions/26620312/git-installing-git-in-path-with-github-client-for-windows
+// how to change the path for using Git commands for windows pc
+
 // Variable Declarations and Function Definitions
 const URL = "https://bcmhealthserver.herokuapp.com/"
 
