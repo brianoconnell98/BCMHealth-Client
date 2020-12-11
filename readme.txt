@@ -59,3 +59,6 @@ https://www.youtube.com/watch?v=bjVUqvcCnxM
 I also follow a fella called Dev Ed on YouTube he also has quite a few videos which i have referenced above which are very handy to have.
 https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q
 
+
+dropdown list in nav bar
+https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
