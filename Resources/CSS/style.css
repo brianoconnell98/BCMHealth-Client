@@ -148,7 +148,6 @@ nav {
 }
 
 /* https://www.youtube.com/watch?v=jV8B24rSN5o Commented tutorial */
-/* https://codepen.io/bradtraversy/pen/gvMGyB */
 /* CSS Variables */
 :root {
     --primary: #ddd;
@@ -266,13 +265,6 @@ nav {
     opacity: 1;
   }
   
-  /* .showcase-text {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    padding: 16px 32px;
-  }  */
-  
   /* Top Box */
   .top-box {
     min-height: 100px;
@@ -282,10 +274,6 @@ nav {
     box-shadow: var(--shadow);
     padding: 1rem;
   }
-  
-  /* .top-box .price {
-    font-size: 2.5rem;
-  } */
   
   .top-box-a {
     grid-area: top-box-a;
@@ -344,10 +332,18 @@ nav {
   }
 
   .info-image {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
   }
+
+  /* .info-text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+  }  */
   
   /* Portfolio */
   .portfolio {
@@ -361,6 +357,53 @@ nav {
     box-shadow: var(--shadow);
   }
   
+  /* Education Page CSS */
+   /* Top Container */
+   .education-top {
+    display: grid;
+    box-shadow: var(--shadow);
+  }
+  
+  .education-title {
+    color: hotpink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .education-title h1 {
+    margin: 0 1rem 0 1rem;
+    padding: 1rem;
+  }
+
+  .education-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin-left: 1rem;
+  }
+
+  .education-content h2, h3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .education-content-heading {
+    text-align: center;
+  }
+
+  .education-images {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+  }
+
   /* Footer */
   footer {
     margin-top: 2rem;

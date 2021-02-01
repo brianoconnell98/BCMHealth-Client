@@ -1,5 +1,6 @@
-Youtube tutorial for setting up of CSS grid for homepage
+Youtube tutorials for setting up of CSS grid for homepage
 https://www.youtube.com/watch?v=ZeDP-rzOnAA 
+https://www.youtube.com/watch?v=jV8B24rSN5o
 
 
 Here is the code for the styling of the basic CSS grid and another youtube tutorial I followed
@@ -19,16 +20,12 @@ I got help off a fellow class mate. Adam O'Ceallaigh.
 I was explaining the difficulty I had in connecting to the online mongodb and that I nearly had it set up but wasn't connecting
 properly. He assisted me in connecting it properly. As it involved adding some extra lines of code.
 
-He also advised me to use netlify aswell as heroku app for hosting my network. I was able to successfully sey up both of these.
-Heroku hosts the server aspect, where as Netlify hosts the front end or the client side. 
-These are both linked to my Github account.
 
-He also told me to download an app called cors this permits the data being transferred between netlify and heroku on google chrome
+He also advised me to download an app called cors this permits the data being transferred between netlify and heroku on google chrome
 usually this is blocked. This is inside in the libs_required folder aswell as the index.js 
 
 Also for the purpose of github adam recommended tha I used the .gitignore feature. I had seen it used by others but he explained it
 so it made more sense to use it then so that it wouldn't upload them modules to github taking so long and also taking up the memory.
-
 
 
 
@@ -55,6 +52,10 @@ https://www.youtube.com/watch?v=P7t13SgytRk
 netlify how to deploy websites
 https://www.youtube.com/watch?v=bjVUqvcCnxM
 
+He also advises to use netlify aswell as heroku app for hosting my network. I was able to successfully set up both of these.
+Heroku hosts the server aspect, where as Netlify hosts the front end or the client side. 
+These are both linked to my Github account.
+
 
 I also follow a fella called Dev Ed on YouTube he also has quite a few videos which i have referenced above which are very handy to have.
 https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q
@@ -62,3 +63,7 @@ https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q
 
 dropdown list in nav bar
 https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp#:~:text=Example%20Explained,dropdown%20menu%20correctly%20with%20CSS.
+
+
+content for education page
+https://www.physio-pedia.com/Oncology_Examination

@@ -20,6 +20,7 @@ const displayUsers = data => {
     data = data.map(user => 
     `
         <h1>${user.name}<h1>
+        <h1>${user.age}<h1>
     `);
     mainContainer.insertAdjacentHTML("afterbegin", data)
 }
