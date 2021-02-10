@@ -67,3 +67,15 @@ https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp#:~:text=Example%20
 
 content for education page
 https://www.physio-pedia.com/Oncology_Examination
+
+
+Tutorial for designing the gui of the login/registration page
+https://www.youtube.com/watch?v=OWNxUVnY3pg
+
+
+Tutorial for registration page switching from patient/physiotherapist view
+https://www.youtube.com/watch?v=L5WWrGMsnpw
+
+
+Tutorial for registration page linking to database
+https://www.youtube.com/watch?v=6FOq4cUdH8k

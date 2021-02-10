@@ -101,7 +101,7 @@ nav {
     justify-content: flex-end;
 }
 
-.login {
+.loginbtn {
   border-radius: 10px;
   border: 1px solid white;
   background-color: hotpink;
@@ -112,7 +112,7 @@ nav {
   cursor: pointer;
 }
 
-.login:hover {
+.loginbtn:hover {
   border-radius: 10px;
   border: 1px solid hotpink;
   background-color:white;
@@ -123,7 +123,7 @@ nav {
   cursor: pointer;
 }
 
-.sign-up {
+.registerbtn {
   border-radius: 10px;
   border: 1px solid white;
   background-color: hotpink;
@@ -135,7 +135,7 @@ nav {
   margin-left: 1.5rem;
 }
 
-.sign-up:hover {
+.registerbtn:hover {
   border-radius: 10px;
   border: 1px solid hotpink;
   background-color:white;
@@ -403,6 +403,259 @@ nav {
     justify-content: space-around;
     padding: 2rem;
   }
+
+  /* Login Page CSS */
+  .login-top {
+    display: grid;
+    box-shadow: var(--shadow);
+  }
+  
+  .login-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 2rem;
+  }
+
+  .login-title h1 {
+    color: black;
+    margin: 0 1rem 0 1rem;
+    padding: 1rem;
+  }
+
+  .login-title i {
+    color: hotpink;
+  }
+
+  .loginbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 320px;
+    height: 420px;
+    padding: 2rem;
+  }
+
+  h1 {
+    margin:0;
+    padding:0 0 20px;
+    text-align: center;
+    font-size:22px;
+  }
+
+  .loginbox p {
+    font-weight: bold;
+  }
+
+  .loginbox input {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .loginbox input[type="submit"]
+  {
+    background: hotpink;
+    color: black;
+    padding: .8rem 1.3rem;
+    text-decoration: none;
+    border: 0;
+    border-radius: 20px; 
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .loginbox input[type="submit"]:hover
+  {
+    cursor: pointer;
+    background: black;
+    color: hotpink;
+  }
+
+  .loginbox a{
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  .loginbox a:hover
+  {
+    color: hotpink;
+  }
+
+  .loginbox-images {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+  }
+
+  /* Register Page CSS */
+  .register-top {
+    display: grid;
+    box-shadow: var(--shadow);
+  }
+  
+  .register-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 2rem;
+  }
+
+  .register-title h1 {
+    color: black;
+    margin: 0 1rem 0 1rem;
+    padding: 1rem;
+  }
+
+  .register-title i {
+    color: hotpink;
+  }
+
+  .registerbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 25rem;
+    height: 35rem;
+    padding: 2rem;
+  }
+
+  .registerbox p {
+    font-weight: bold;
+  }
+
+  .registerbox input {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .registerbox input[type="submit"]
+  {
+    background: hotpink;
+    color: black;
+    padding: .8rem 1.3rem;
+    text-decoration: none;
+    border: 0;
+    border-radius: 20px; 
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .registerbox input[type="submit"]:hover
+  {
+    cursor: pointer;
+    background: black;
+    color: hotpink;
+  }
+
+  .registerbox a{
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  .registerbox a:hover
+  {
+    color: hotpink;
+  }
+
+  .registerbox-images {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+  }
+
+  /*tutorial on how to have toggle button for registration page https://www.youtube.com/watch?v=L5WWrGMsnpw*/
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 30rem;
+    width: 25rem;
+  }
+
+  .form-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 2rem;
+  }
+
+  .registerbtn{
+    width: 5rem;
+    height: 4rem;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    transition: .5s;
+    position: absolute;
+  }
+
+  .toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    position: absolute;
+  }  
+
+  .input-group {
+    top: 11rem;
+    position: absolute;
+    width: 20rem;
+    transition: .5s;
+    margin-top: 6rem;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+  }
+
+  .submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+  }
+
+  .check-box {
+    margin: 30px 10px 30px 10px;
+  }
+
+  span {
+    color: rgb(119, 119, 119);
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
+  }
+
+  /* #patient {
+    left: 50px;
+  }
+
+  #physiotherapist {
+    left: 450px;
+  } */
 
   /* Footer */
   footer {

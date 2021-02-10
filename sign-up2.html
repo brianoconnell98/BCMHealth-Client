@@ -27,8 +27,8 @@
             </ul>
         </nav>
         <div class="patients">
-            <a class="loginbtn active" href="login.html">Login</a>
-            <a class="registerbtn" href="register.html">Register</a>
+            <a class="login active" href="login.html">Login</a>
+            <a class="sign-up" href="sign-up.html">Sign Up</a>
         </div>
     </header>
 
@@ -41,8 +41,17 @@
               <h1>Login Page for Patients/Physios</h1>
               <i class="fas fa-users fa-4x"></i>
             </div>
+            
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="registerbtn"></div>
+                    <button type="button" class="toggle-btn" onclick="patient()">Patient</button>
+                    <button type="button" class="toggle-btn" onclick="physiotherapist()">
+                    Physiotherapist</button>
+                </div>
+            </div>
 
-        <div class="loginbox">
+        <div class="registerbox">
             <form>
                 <p>Email</p>
                 <input type="email" name="" placeholder="Enter Email">
@@ -53,7 +62,7 @@
                 <br/>
                 <a href="#">Forgot Your Password</a>
                 <br/>
-                <a href="register.html">Don't have an account?</a>
+                <a href="sign-up.html">Don't have an account?</a>
             </form>
         </div> 
     </div>

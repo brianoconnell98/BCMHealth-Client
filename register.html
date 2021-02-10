@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="Resources/JS/main.js"></script>
+    <script src="https://kit.fontawesome.com/5d75b5a5f0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Resources/CSS/style.css">
+    <title>BCMHEALTH - Register</title>
+    <link rel="shortcut icon" type="image/png" href="/Resources/Images/bcmhealth_logo.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+              <img src="./Resources/Images/bcmhealth_logo.png" alt="logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a class="nav-link" href="education.html">Education</a></li>
+                <li><a class="nav-link" href="exercises.html">Exercises</a></li>
+                <li><a class="nav-link" href="statistics.html">Statistics</a></li>
+                <li><a class="nav-link" href="support.html">Support</a></li>
+            </ul>
+        </nav>
+        <div class="patients">
+            <a class="loginbtn" href="login.html">Login</a>
+            <a class="registerbtn active" href="register.html">Register</a>
+        </div>
+    </header>
+
+    <body>
+    <!--https://www.youtube.com/watch?v=OWNxUVnY3pg used some of this to make the registration page-->
+    <div class="wrapper">
+        <section class="register-top">
+            <div class="register-title">
+              <i class="fas fa-users fa-4x"></i>
+              <h1>Register here for BCMHEALTH</h1>
+              <i class="fas fa-users fa-4x"></i>
+            </div>
+
+            <!-- tutorial for registration page https://www.youtube.com/watch?v=L5WWrGMsnpw-->
+            <!-- <div class="form-box">
+                <div class="button-box">
+                    <div id="registerbtn"></div>
+                    <button type="button" class="toggle-btn" onclick="patient()">Patient</button>
+                    <button type="button" class="toggle-btn" onclick="physiotherapist()">
+                    Physiotherapist</button>
+                </div>
+            </div> -->
+
+            <div class="registerbox">
+            <!-- Patient -->
+            <form id="patient" class="input-group">
+                <input type="text" class="input-field" placeholder="Name" required>
+                <input type="integer" class="input-field" placeholder="Age" required>
+                <input type="email" class="input-field" placeholder="Email" required>
+                <input type="password" class="input-field" placeholder="Password" required>
+                <input type="password" class="input-field" placeholder="Re-Enter Password" required>
+                <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span>
+                <button type="submit" class="submit-btn">Register</button>
+                <a href="login.html">Have an account?</a>
+            </form>
+            </div>
+           <!-- Physiotherapist 
+            <form id="physiotherapist" class="input-group">
+                <input type="text" class="input-field" placeholder="Name" required>
+                <input type="email" class="input-field" placeholder="Email" required>
+                <input type="text" class="input-field" placeholder="Location" required>
+                <input type="password" class="input-field" placeholder="Password" required>
+                <input type="password" class="input-field" placeholder="Re-Enter Password" required>
+                <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span>
+                <input type="checkbox" class="check-box"><span>I confirm I am a registered Physiotherapist</span>
+                <button type="submit" class="submit-btn">Register</button>
+                <a href="login.html">Have an account?</a>
+            </form> -->
+        
+
+        <!-- <script>
+            var x = document.getElementById("patient");
+            var y = document.getElementById("physiotherapist");
+            var z = document.getElementById("registerbtn");
+
+            function physiotherapist () {
+                x.style.left = "-400px";
+                y.style.left = "50px";
+                z.style.left = "110px";
+            }
+
+            function patient () {
+                x.style.left = "50px";
+                y.style.left = "450px";
+                z.style.left = "0px";
+            }
+        </script> -->
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>BCMHEALTH &copy; 2020</p>
+      </footer>
+  
+  </body>
+  </html>
