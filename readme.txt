@@ -52,7 +52,7 @@ https://www.youtube.com/watch?v=P7t13SgytRk
 netlify how to deploy websites
 https://www.youtube.com/watch?v=bjVUqvcCnxM
 
-He also advises to use netlify aswell as heroku app for hosting my network. I was able to successfully set up both of these.
+Adam O Ceallaigh advises to use netlify aswell as heroku app for hosting my network. I was able to successfully set up both of these.
 Heroku hosts the server aspect, where as Netlify hosts the front end or the client side. 
 These are both linked to my Github account.
 
@@ -77,5 +77,9 @@ Tutorial for registration page switching from patient/physiotherapist view
 https://www.youtube.com/watch?v=L5WWrGMsnpw
 
 
-Tutorial for registration page linking to database
-https://www.youtube.com/watch?v=6FOq4cUdH8k
+Tutorial https://www.youtube.com/watch?v=6FOq4cUdH8k Used for:
+-registration page linking to database
+-setting up passport
+-setting up error handling
+-linking registration to database
+-crypting the password that the patient/physio uses 

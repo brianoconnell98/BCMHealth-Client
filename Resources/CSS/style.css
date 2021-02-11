@@ -64,6 +64,18 @@ nav {
   cursor: pointer;
 }
 
+/* active for register + login buttons in nav bar - why isn't that working?*/
+.live {
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color:blue;
+  color: hotpink;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: .8rem;
+  cursor: pointer;
+}
+
 /* https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp#:~:text=Example%20Explained,
    dropdown%20menu%20correctly%20with%20CSS. */
 /* Dropdown content (hidden by default) */
@@ -589,14 +601,15 @@ nav {
     padding: 2rem;
   }
 
-  .registerbtn{
+  /* register button defined down further*/
+  /* .registerbtn{
     width: 5rem;
     height: 4rem;
     background: linear-gradient(to right, #ff105f, #ffad06);
     border-radius: 30px;
     transition: .5s;
     position: absolute;
-  }
+  } */
 
   .toggle-btn {
     padding: 10px 30px;
