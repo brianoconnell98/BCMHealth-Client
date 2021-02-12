@@ -43,12 +43,13 @@
             </div>
 
         <div class="loginbox">
-            <form>
+            <form action="http://localhost:8000/patients/" method="get">
                 <p>Email</p>
-                <input type="email" name="" placeholder="Enter Email">
+                <input type="email" name="email" placeholder="Enter Email" required>
                 <p>Password</p>
-                <input type="password" name="" placeholder="Enter Password">
-                <input type="submit" name ="" value="Login">
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <!-- <input type="submit" name ="" value="Login"> -->
+                <button type="submit" class="submit-btn">Login</button>
                 <br/>
                 <br/>
                 <a href="#">Forgot Your Password</a>
