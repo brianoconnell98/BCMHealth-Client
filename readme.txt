@@ -95,3 +95,7 @@ Used for passport.js and node.js code
 
 https://stackoverflow.com/questions/47207878/how-to-add-function-in-toggle-button/47211182
 Used for bringing in the code for auto clicking the toggle button on the register page 
+
+
+https://stackoverflow.com/questions/55354009/how-to-toggle-a-map-locations-using-map-buttons-in-js
+Used for aiding the use of mapping the toggle buttons for the login and registration pages
