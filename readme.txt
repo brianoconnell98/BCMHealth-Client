@@ -83,3 +83,15 @@ Tutorial https://www.youtube.com/watch?v=6FOq4cUdH8k Used for:
 -setting up error handling
 -linking registration to database
 -crypting the password that the patient/physio uses 
+
+
+https://www.youtube.com/watch?v=PwUoiTt2oKM&ab_channel=NoobCoder&fbclid=IwAR1FlAFIDWyItHSy9aSgFyGrWd9zGXgjQuL3wby1WWR27guh5okMXxERPxM
+Used for JOI for validation for database entries
+
+
+https://www.youtube.com/watch?v=IUw_TgRhTBE&ab_channel=NathanielWoodbury&fbclid=IwAR2zsQHInNxkAsUCLiyxlzIDFBm5eocorsPulPYUBxfdQ0H3CuUNmMry2HY
+Used for passport.js and node.js code
+
+
+https://stackoverflow.com/questions/47207878/how-to-add-function-in-toggle-button/47211182
+Used for bringing in the code for auto clicking the toggle button on the register page 

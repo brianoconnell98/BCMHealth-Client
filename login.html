@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script defer src="Resources/JS/main.js"></script>
+    <!-- <script defer src="Resources/JS/main.js"></script> -->
     <script src="https://kit.fontawesome.com/5d75b5a5f0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Resources/CSS/style.css">
+    <link rel="stylesheet" href="Resources/CSS/funcClasses.css">
     <title>BCMHEALTH - Login</title>
     <link rel="shortcut icon" type="image/png" href="/Resources/Images/bcmhealth_logo.png">
 </head>
@@ -41,26 +42,68 @@
               <h1>Login Page for Patients/Physios</h1>
               <i class="fas fa-users fa-4x"></i>
             </div>
+        
+        <!-- tutorial for registration page https://www.youtube.com/watch?v=L5WWrGMsnpw-->
+        <div class="register-toggle">
+            <div class="registertoggle"></div> 
+                <button type="button" class="toggleregister_btn" data-job="Patient">
+                    Patient</button>
+                <button type="button" class="toggleregister_btn" data-job="Physio">
+                    Physio</button>
+            </div>
 
-        <div class="loginbox">
-            <form action="http://localhost:8000/patients/login/" method="post">
-                <p>Email</p>
-                <input type="email" name="email" placeholder="Enter Email" required>
-                <p>Password</p>
-                <input type="password" name="password" placeholder="Enter Password" required>
-                <!-- <input type="submit" name ="" value="Login"> -->
-                <button type="submit" class="submit-btn">Login</button>
-                <br/>
-                <br/>
-                <a href="#">Forgot Your Password</a>
-                <br/>
-                <a href="register.html">Don't have an account?</a>
-            </form>
-        </div> 
-    </div>
+        <div class="registerBoxOuter">
+            <div class="registerboxInner">
+            
+                <!-- Patient -->
+                <form class="formRegister displayBlock" data-job="Patient"action="http://localhost:8000/patients/login/" method="post" class="input-group">
+                    <input type="email" class="login-field line" placeholder="Email" name="email" required>
+                    <input type="password" class="login-field line" placeholder="Password" name="password" required>
+                    <div class="login-field"><input type="checkbox" class="check-box "><span>Keep me signed in</span></div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <a class="help" href="register.html">Don't have an account?</a>
+                </form>
 
-    </body>
+                <!-- Physiotherapist -->
+                <form class="formRegister"  action="http://localhost:8000/physios/login/" data-job="Physio" method="post" class="input-group">
+                    <input type="email" class="login-field line" placeholder="Email" name="email" required>
+                    <input type="password" class="login-field line" placeholder="Password" name="password" required>
+                    <div class="login-field"><input type="checkbox" class="check-box "><span>Keep me signed in</span></div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <a class="help" href="register.html">Don't have an account?</a>
+                </form>
+            </div>
+        </div>
+    
 
+    <!-- https://stackoverflow.com/questions/47207878/how-to-add-function-in-toggle-button/47211182 -->
+    <script>
+
+        const toggleButtons = () => {
+            const switcher = document.querySelector(".registertoggle")
+            const formRegisters = [...document.querySelectorAll(".formRegister")]
+            const toggleButtons = [...document.querySelectorAll(".toggleregister_btn")];
+            toggleButtons.map(toggleButton => 
+                $(toggleButton).click(e => {
+                    if(e.target.dataset.job === "Physio") {
+                        switcher.classList.toggle("left10")
+                    } else {
+                        switcher.classList.remove("left10")
+                    }
+                    toggleButtons.filter(toggleButton => toggleButton.dataset.job != e.target.dataset.job).map(toggleButton => toggleButton.classList.remove("switched"))
+                    e.target.classList.add("switched");
+                    formRegisters.filter(formRegister => formRegister.dataset.job != e.target.dataset.job).map(formRegister => formRegister.classList.remove("displayBlock"))
+                    document.querySelector(`.formRegister[data-job="${e.target.dataset.job}"]`).classList.add("displayBlock")
+                })
+            )
+        }
+
+        window.onload = () => {
+            toggleButtons()
+            document.querySelector(`.toggleregister_btn[data-job="Patient"]`).click()
+        };
+
+    </script>
     <!-- Footer -->
     <footer>
         <p>BCMHEALTH &copy; 2020</p>

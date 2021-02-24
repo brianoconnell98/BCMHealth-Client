@@ -1,163 +1,172 @@
 /* https://www.youtube.com/watch?v=ZeDP-rzOnAA */
 header {
-    display: flex;
-    width: 90%;
-    height: 10vh;
-    margin: auto;
-    margin-top: 3rem;
-    align-items: center;
-    margin-bottom: 3rem;
+  display: flex;
+  width: 90%;
+  height: 10vh;
+  margin: auto;
+  margin-top: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
 }
 
 .logo-container,.nav-links,.patients {
-    display: flex;
+  display: flex;
 }
 
 .logo-container {
-    flex: 1;
+  flex: 1;
 }
 
 .logo-container img{
-    color: hotpink;
-    margin-top: 1rem;
+  color: hotpink;
+  margin-top: 1rem;
 }
 
 nav {
-    flex: 3;
+  flex: 3;
 }
 
 .nav-links {
-    justify-content: space-around;
-    list-style: none;
+  justify-content: space-around;
+  list-style: none;
 }
 
 .nav-link {
-    border-radius: 10px;
-    border: 1px solid hotpink;
-    background-color: white;
-    color: hotpink;
-    font-size: 1.2rem;
-    text-decoration: none;
-    padding: .8rem;
-    cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid hotpink;
+  background-color: white;
+  color: hotpink;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: .8rem;
+  cursor: pointer;
 }
 
 .nav-link:hover {
-  border-radius: 10px;
-  border: 1px solid white;
-  background-color:hotpink;
-  color: black;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: .8rem;
-  cursor: pointer;
+border-radius: 10px;
+border: 1px solid white;
+background-color:hotpink;
+color: black;
+font-size: 1.2rem;
+text-decoration: none;
+padding: .8rem;
+cursor: pointer;
 }
 
 .active {
-  border-radius: 10px;
-  border: 1px solid white;
-  background-color:hotpink;
-  color: black;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: .8rem;
-  cursor: pointer;
+border-radius: 10px;
+border: 1px solid white;
+background-color:hotpink;
+color: black;
+font-size: 1.2rem;
+text-decoration: none;
+padding: .8rem;
+cursor: pointer;
 }
 
 /* active for register + login buttons in nav bar - why isn't that working?*/
 .live {
-  border-radius: 10px;
-  border: 1px solid white;
-  background-color:blue;
-  color: hotpink;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: .8rem;
-  cursor: pointer;
+border-radius: 10px;
+border: 1px solid white;
+background-color:blue;
+color: hotpink;
+font-size: 1.2rem;
+text-decoration: none;
+padding: .8rem;
+cursor: pointer;
 }
 
 /* https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp#:~:text=Example%20Explained,
-   dropdown%20menu%20correctly%20with%20CSS. */
+ dropdown%20menu%20correctly%20with%20CSS. */
 /* Dropdown content (hidden by default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  /* min-width: 160px; */
-  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-  z-index: 1;
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+/* min-width: 160px; */
+/* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+float: none;
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+text-align: left;
 }
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+background-color: #ddd;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-  display: block;
+display: block;
 }
 
 .patients {
-    flex: 1;
-    justify-content: flex-end;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .loginbtn {
-  border-radius: 10px;
-  border: 1px solid white;
-  background-color: hotpink;
-  color: black;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: 0.9rem;
-  cursor: pointer;
+border-radius: 10px;
+border: 1px solid white;
+background-color: hotpink;
+color: black;
+font-size: 1.2rem;
+text-decoration: none;
+padding: 0.9rem;
+cursor: pointer;
 }
 
 .loginbtn:hover {
-  border-radius: 10px;
-  border: 1px solid hotpink;
-  background-color:white;
-  color: hotpink;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: 0.9rem; 
-  cursor: pointer;
+border-radius: 10px;
+border: 1px solid hotpink;
+background-color:white;
+color: hotpink;
+font-size: 1.2rem;
+text-decoration: none;
+padding: 0.9rem; 
+cursor: pointer;
 }
 
 .registerbtn {
-  border-radius: 10px;
-  border: 1px solid white;
-  background-color: hotpink;
-  color: black;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: 0.9rem;
-  cursor: pointer;
-  margin-left: 1.5rem;
+border-radius: 10px;
+border: 1px solid white;
+background-color: hotpink;
+color: black;
+font-size: 1.2rem;
+text-decoration: none;
+padding: 0.9rem;
+cursor: pointer;
+margin-left: 1.5rem;
 }
 
 .registerbtn:hover {
-  border-radius: 10px;
-  border: 1px solid hotpink;
-  background-color:white;
-  color: hotpink;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: 0.9rem; 
-  cursor: pointer;
-  margin-left: 1.5rem;
+border-radius: 10px;
+border: 1px solid hotpink;
+background-color:white;
+color: hotpink;
+font-size: 1.2rem;
+text-decoration: none;
+padding: 0.9rem; 
+cursor: pointer;
+margin-left: 1.5rem;
 }
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  background: black;
+  color: hotpink;
+  text-align: center;
+  padding: 1rem;
+} 
 
 /* https://www.youtube.com/watch?v=jV8B24rSN5o Commented tutorial */
 /* CSS Variables */
@@ -420,6 +429,7 @@ nav {
   .login-top {
     display: grid;
     box-shadow: var(--shadow);
+    padding: 40px 0 0 0;
   }
   
   .login-title {
@@ -427,7 +437,7 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    padding-right: 2rem;
+    padding: 0px 0px 30px 0;
   }
 
   .login-title h1 {
@@ -504,87 +514,82 @@ nav {
   }
 
   /* Register Page CSS */
-  .register-top {
-    display: grid;
-    box-shadow: var(--shadow);
-  }
-  
-  .register-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    padding-right: 2rem;
-  }
+.register-top {
+  display: grid;
+  box-shadow: var(--shadow);
+}
 
-  .register-title h1 {
-    color: black;
-    margin: 0 1rem 0 1rem;
-    padding: 1rem;
-  }
+.register-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-right: 2rem;
+}
 
-  .register-title i {
-    color: hotpink;
-  }
+.register-title h1 {
+  color: black;
+  margin: 0 1rem 0 1rem;
+  padding: 1rem;
+}
 
-  .registerbox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 25rem;
-    height: 35rem;
-    padding: 2rem;
-  }
+.register-title i {
+  color: hotpink;
+}
 
-  .registerbox p {
-    font-weight: bold;
-  }
+.registerBoxOuter {
+  padding: 2em 2em;
+  display: grid;
+  place-items: center;
+}
 
-  .registerbox input {
-    width: 100%;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-  }
+.registerboxInner {
+  width: 39vw;
+}
 
-  .registerbox input[type="submit"]
-  {
-    background: hotpink;
-    color: black;
-    padding: .8rem 1.3rem;
-    text-decoration: none;
-    border: 0;
-    border-radius: 20px; 
-    font-size: 1rem;
-    font-weight: bold;
-  }
+.registerboxInner p {
+  font-weight: bold;
+}
 
-  .registerbox input[type="submit"]:hover
-  {
-    cursor: pointer;
-    background: black;
-    color: hotpink;
-  }
 
-  .registerbox a{
-    text-decoration: none;
-    font-size: 1rem;
-    line-height: 2rem;
-  }
+.registerboxInner input[type="submit"]
+{
+  background: hotpink;
+  color: black;
+  padding: .8rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+  border-radius: 20px; 
+  font-size: 1rem;
+  font-weight: bold;
+}
 
-  .registerbox a:hover
-  {
-    color: hotpink;
-  }
+.registerboxInner input[type="submit"]:hover
+{
+  cursor: pointer;
+  background: black;
+  color: hotpink;
+}
 
-  .registerbox-images {
-    display: flex;
-    justify-content: space-around;
-    padding: 2rem;
-  }
+.registerboxInner a{
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.registerboxInner a:hover
+{
+  color: hotpink;
+}
+
+.registerboxInner-images {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+}
 
   /*tutorial on how to have toggle button for registration page https://www.youtube.com/watch?v=L5WWrGMsnpw*/
-  .hero {
+  /* .hero {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -599,7 +604,7 @@ nav {
     align-items: center;
     flex-direction: row;
     padding: 2rem;
-  }
+  } */
 
   /* register button defined down further*/
   /* .registerbtn{
@@ -611,13 +616,42 @@ nav {
     position: absolute;
   } */
 
-  .toggle-btn {
+  .register-toggle {
+    display: flex;
+    width: 220px;
+    margin: 0 auto;
+    border-radius: 30px;
+    position: relative;
+  }
+
+  .toggleregister_btn {
     padding: 10px 30px;
     cursor: pointer;
     border: 0;
     outline: none;
-    position: absolute;
+    /* background: linear-gradient(to right, #ff105f,#ffad06); */
+    /* position: relative; */
+    background: transparent;
+    font-weight: 700;
+    font-size: 1.2em;
   }  
+
+  .registertoggle {
+    top: 0vh;
+    left: 0vw;
+    height: 8vh;
+    width: 7vw;
+    border-radius: 30px;
+    transition: .5s;
+    position: absolute;
+    background: black;
+    z-index: -1;
+    padding: 0em 0.9em;
+  }
+  
+  .formRegister{
+    display: none;
+  }
 
   .input-group {
     top: 11rem;
@@ -630,13 +664,27 @@ nav {
   .input-field {
     width: 100%;
     padding: 10px 0;
-    margin: 5px 0;
+    margin: 10px 0;
     border-left: 0;
     border-top: 0;
     border-right: 0;
-    border-bottom: 1px solid #999;
     outline: none;
     background: transparent;
+  }
+
+  .login-field {
+    width: 60%;
+    padding: 10px 0;
+    margin: 10px 110px;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    outline: none;
+    background: transparent;
+  }
+
+  .line{
+    border-bottom: 1px solid #999;
   }
 
   .submit-btn {
@@ -644,39 +692,27 @@ nav {
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    margin: auto;
+    margin: 3em auto;
     background: linear-gradient(to right, #ff105f, #ffad06);
     border: 0;
     outline: none;
     border-radius: 30px;
   }
 
-  .check-box {
-    margin: 30px 10px 30px 10px;
+  .login-btn {
+    width: 45%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: 10px 140px;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
   }
 
-  span {
-    color: rgb(119, 119, 119);
-    font-size: 12px;
-    bottom: 68px;
-    position: absolute;
-  }
-
-  /* #patient {
-    left: 50px;
-  }
-
-  #physiotherapist {
-    left: 450px;
-  } */
-
-  /* Footer */
-  footer {
-    margin-top: 2rem;
-    background: black;
-    color: hotpink;
-    text-align: center;
-    padding: 1rem;
+  .help {
+    margin: 10px 170px;
   }
   
   /* Media Queries */
@@ -705,7 +741,7 @@ nav {
       margin: auto;
     }
   }
-  
+
   @media (max-width: 500px) {
     .top-container {
       grid-template-areas:
