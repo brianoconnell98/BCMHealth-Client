@@ -49,7 +49,7 @@ const getURLData = () => {
 }
 
 function checkUser() {
-    getURLData.get("loggedIn") === "true" || sessionStorage.getItem('userId') != null ? sessionStorage.setItem('userId','1234'): window.location='https://bcmhealth.netlify.app/login.html'
+    getURLData().get("loggedIn") === "true" || sessionStorage.getItem('userId') != null ? sessionStorage.setItem('userId','1234'): window.location='https://bcmhealth.netlify.app/login.html'
   };
 
 
