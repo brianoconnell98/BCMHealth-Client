@@ -42,19 +42,16 @@ getData()
 
 // Functionality
 
-function checkUser() {
-    if(typeof(Storage) !== "undefined") {
-      if (sessionStorage.getItem('userId') !== null ) {
-        return
-      } else {
-        //Make them login
-        'https://bcmhealth.netlify.app/login.html'
-      }}
-    else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-  }};
+// helper functions
+const getURLData = () => {
+    const params = new URLSearchParams(window.location.search)
+    return params
+}
 
-checkUser();
+function checkUser() {
+    getURLData.get("loggedIn") === "true" || sessionStorage.getItem('userId') != null ? sessionStorage.setItem('userId','1234'): window.location='https://bcmhealth.netlify.app/login.html'
+  };
+
 
 //   sessionStorage.setItem('userId','1234')
 //   sessionStorage.getItem('userId')
@@ -81,3 +78,8 @@ checkUser();
 // };
 
 // logoutButton();
+
+// Initialization Methods
+$(document).ready(async ()=> {
+    checkUser()
+})
