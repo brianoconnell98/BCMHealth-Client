@@ -39,8 +39,6 @@ const displayUsers = (data, dataPhysio) => {
     mainContainer1?.insertAdjacentHTML("afterbegin", dataPhysio)
 }
 
-getData()
-
 // Functionality
 
 // helper functions
@@ -82,5 +80,6 @@ function checkUser() {
 
 // Initialization Methods
 $(document).ready(async ()=> {
+    getData()
     checkUser()
 })
