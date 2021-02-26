@@ -3,6 +3,7 @@
 
 // Variable Declarations and Function Definitions
 const URL = "https://bcmhealthserver.herokuapp.com/"
+const localURL = "http://localhost:8000/"
 
 // ``
 
@@ -10,8 +11,8 @@ const URL = "https://bcmhealthserver.herokuapp.com/"
 // js usually executes in chronoligical order
 // Patients displaying 
 const getData = async() => {
-    let physiosData = await axios.get(`${URL}physios`)
-    let patientsData = await axios.get(`${URL}patients`),
+    let physiosData = await axios.get(`${localURL}physios`)
+    let patientsData = await axios.get(`${localURL}patients`),
        {data} = patientsData,
         {data: dataPhysio} = physiosData
      displayUsers(data, dataPhysio)
