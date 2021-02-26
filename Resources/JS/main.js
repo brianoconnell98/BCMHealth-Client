@@ -48,13 +48,11 @@ const getURLData = () => {
 }
 
 function checkUser() {
+    
     getURLData().get("loggedIn") === "true" || sessionStorage.getItem('userId') != null ? sessionStorage.setItem('userId','1234'): window.location='https://bcmhealth.netlify.app/login.html'
   };
 
 
-//   sessionStorage.setItem('userId','1234')
-//   sessionStorage.getItem('userId')
-//   sessionStorage.removeItem('userId')}}
 
 // Change button from login to logout if somebody is logged in
 // function loginButton() {
@@ -81,5 +79,8 @@ function checkUser() {
 // Initialization Methods
 $(document).ready(async ()=> {
     getData()
+    if((/(?:^|\W)index(?:$|\W)/).test(window.location.pathname.toLowerCase()) || (/(?:^|\W)\/(?:$|\W)/).test(window.location.pathname.toLowerCase()) ){
+        return
+    }
     checkUser()
 })
