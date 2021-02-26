@@ -38,7 +38,7 @@ const displayUsers = (data, dataPhysio) => {
     mainContainer1.insertAdjacentHTML("afterbegin", dataPhysio)
 }
 
-getData()
+getData();
 
 // Functionality
 
@@ -55,7 +55,7 @@ function checkUser() {
         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
   }};
 
-checkUser()
+checkUser();
 
 //   sessionStorage.setItem('userId','1234')
 //   sessionStorage.getItem('userId')
@@ -73,12 +73,12 @@ function loginButton() {
           document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
     }};
 
-loginButton()
+loginButton();
 
 function logoutButton() {
     if (document.getElementById('.logoutbtn').click === true) {
         sessionStorage.removeItem('userId')
     }
-}
+};
 
-logoutButton()
+logoutButton();
