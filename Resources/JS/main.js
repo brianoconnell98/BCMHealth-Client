@@ -15,7 +15,7 @@ const getData = async() => {
        {data} = patientsData,
         {data: dataPhysio} = physiosData
      displayUsers(data, dataPhysio)
-}
+};
 
 const displayUsers = (data, dataPhysio) => {
     const mainContainer = document.querySelector(".main_container")
@@ -36,9 +36,9 @@ const displayUsers = (data, dataPhysio) => {
 
     mainContainer.insertAdjacentHTML("afterbegin", data)
     mainContainer1.insertAdjacentHTML("afterbegin", dataPhysio)
-}
+};
 
-getData();
+// getData();
 
 // Functionality
 
@@ -55,7 +55,7 @@ function checkUser() {
         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
   }};
 
-checkUser();
+// checkUser();
 
 //   sessionStorage.setItem('userId','1234')
 //   sessionStorage.getItem('userId')
@@ -73,7 +73,7 @@ function loginButton() {
           document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
     }};
 
-loginButton();
+// loginButton();
 
 function logoutButton() {
     if (document.getElementById('.logoutbtn').click === true) {
@@ -81,4 +81,4 @@ function logoutButton() {
     }
 };
 
-logoutButton();
+// logoutButton();
