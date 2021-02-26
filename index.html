@@ -6,6 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="Resources/JS/main.js"></script>
+    <script defer src="Resources/JS/functionality.js"></script>
     <script src="https://kit.fontawesome.com/5d75b5a5f0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Resources/CSS/style.css">
     <title>BCMHEALTH - Home</title>
@@ -33,7 +34,7 @@
                 <li><a class="nav-link" href="education.html">Education</a></li>
                 <li><a class="nav-link" href="exercises.html">Exercises</a></li>
                 <li><a class="nav-link" href="statistics.html">Statistics</a></li>
-                <li><a class="nav-link" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="support.html" onclick="checkUser()">Support</a></li>
             </ul>
         </nav>
         <div class="patients">
@@ -118,25 +119,19 @@
       </div>
     </section>
 
-    <!-- Portfolio -->
-    <!-- <section class="portfolio">
-      <img src="https://source.unsplash.com/random/200x200" alt="">
-      <img src="https://source.unsplash.com/random/201x200" alt="">
-      <img src="https://source.unsplash.com/random/202x200" alt="">
-      <img src="https://source.unsplash.com/random/203x200" alt="">
-      <img src="https://source.unsplash.com/random/204x200" alt="">
-      <img src="https://source.unsplash.com/random/205x200" alt="">
-      <img src="https://source.unsplash.com/random/206x200" alt="">
-      <img src="https://source.unsplash.com/random/207x200" alt="">
-      <img src="https://source.unsplash.com/random/208x200" alt="">
-    </section> -->
 
     <h1>Testing 1,2 Testing</h1>
      js is executing and populating the main_container 
-    <div class="main_container">
-    <!-- <div class="main_container1"> -->
+    <div class="main_container"></div>
+    <div class="main_container1"></div> 
 
-    </div> 
+    <script>
+
+      window.onload = () => {
+        loginButton()
+      }
+      
+    </script>
 
     <!-- Footer -->
     <footer>

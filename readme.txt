@@ -99,3 +99,7 @@ Used for bringing in the code for auto clicking the toggle button on the registe
 
 https://stackoverflow.com/questions/55354009/how-to-toggle-a-map-locations-using-map-buttons-in-js
 Used for aiding the use of mapping the toggle buttons for the login and registration pages
+
+
+https://stackoverflow.com/questions/50404128/how-to-make-a-button-pressed-by-default-in-html-or-javascript
+Used to automatically click the button on page load
