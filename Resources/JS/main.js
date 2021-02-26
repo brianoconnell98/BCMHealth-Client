@@ -15,7 +15,7 @@ const getData = async() => {
        {data} = patientsData,
         {data: dataPhysio} = physiosData
      displayUsers(data, dataPhysio)
-};
+}
 
 const displayUsers = (data, dataPhysio) => {
     const mainContainer = document.querySelector(".main_container")
@@ -36,24 +36,24 @@ const displayUsers = (data, dataPhysio) => {
 
     mainContainer.insertAdjacentHTML("afterbegin", data)
     mainContainer1.insertAdjacentHTML("afterbegin", dataPhysio)
-};
+}
 
-// getData();
+getData()
 
 // Functionality
 
-function checkUser() {
-    if(typeof(Storage) !== "undefined") {
-      if (sessionStorage.getItem('userId') !== null ) {
-        //Open the page - continue with action
-        'https://bcmhealth.netlify.app/?.html'
-      } else {
-        //Make them login
-        'https://bcmhealth.netlify.app/login.html'
-      }}
-    else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-  }};
+// function checkUser() {
+//     if(typeof(Storage) !== "undefined") {
+//       if (sessionStorage.getItem('userId') !== null ) {
+//         //Open the page - continue with action
+//         'https://bcmhealth.netlify.app/?.html'
+//       } else {
+//         //Make them login
+//         'https://bcmhealth.netlify.app/login.html'
+//       }}
+//     else {
+//         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+//   }};
 
 // checkUser();
 
@@ -62,23 +62,23 @@ function checkUser() {
 //   sessionStorage.removeItem('userId')}}
 
 // Change button from login to logout if somebody is logged in
-function loginButton() {
-    if(typeof(Storage) !== "undefined") {
-        if (sessionStorage.getItem('userId') !== null ) {
-            <button class="logoutbtn" href="index.html">Logout</button>
-        } else {
-            <button class="loginbtn" href="login.html">Login</button>
-        }}
-      else {
-          document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-    }};
+// function loginButton() {
+//     if(typeof(Storage) !== "undefined") {
+//         if (sessionStorage.getItem('userId') !== null ) {
+//             <button class="logoutbtn" href="index.html">Logout</button>
+//         } else {
+//             <button class="loginbtn" href="login.html">Login</button>
+//         }}
+//       else {
+//           document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+//     }};
 
 // loginButton();
 
-function logoutButton() {
-    if (document.getElementById('.logoutbtn').click === true) {
-        sessionStorage.removeItem('userId')
-    }
-};
+// function logoutButton() {
+//     if (document.getElementById('.logoutbtn').click === true) {
+//         sessionStorage.removeItem('userId')
+//     }
+// };
 
 // logoutButton();
