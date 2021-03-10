@@ -103,3 +103,14 @@ Used for aiding the use of mapping the toggle buttons for the login and registra
 
 https://stackoverflow.com/questions/50404128/how-to-make-a-button-pressed-by-default-in-html-or-javascript
 Used to automatically click the button on page load
+
+
+https://www.w3schools.com/html/html5_webstorage.asp
+Used for creating the session to check if somebody is logged in
+
+
+https://stackoverflow.com/questions/20052617/use-multiple-local-strategies-in-passportjs
+to set up authentication for two kinds of users
+
+
+

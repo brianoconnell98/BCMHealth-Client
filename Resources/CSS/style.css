@@ -414,7 +414,8 @@ footer {
     align-items: center;
     flex-direction: row;
     padding-right: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
   }
 
   .education-title h1 {
@@ -425,20 +426,14 @@ footer {
   .education-content {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
 
-  .education-content h2, h3 {
+  .education-content h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  .education-content-heading {
-    text-align: center;
   }
 
   .education-images {
@@ -446,6 +441,100 @@ footer {
     justify-content: space-around;
     padding: 2rem;
   }
+
+  /* Exercise Page CSS */
+   /* Top Container */
+   .exercise-top {
+    display: grid;
+    box-shadow: var(--shadow);
+  }
+  
+  .exercise-title {
+    color: hotpink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  .exercise-title h1 {
+    margin: 0 1rem 0 1rem;
+    padding: 1rem;
+  }
+
+   /* Exercise Grid */
+   .exercise-top-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .exercise-box-a {
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    color: black;
+  }
+
+  .exercise-box-a h3 {
+    text-align: center; 
+  }
+
+  .exercise-box-b {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    color: black;
+  }
+
+  /* IFrames */
+  .iframes {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: auto auto;
+  }
+  
+  .iframe-a {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    color: black;
+  }
+
+  .iframe-b {
+    background-color: black;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    color: white;
+  }
+
+  /* Exercise Grid */
+  .exercise-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit);
+  }
+  
+  .exercise-grid-a {
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    color: black;
+  }
+
+  .exercise-grid-a h2 {
+    text-align: center;
+  }
+
+  .exercise-grid-b {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    color: black;
+  }
+
 
   /* Login Page CSS */
   .login-top {

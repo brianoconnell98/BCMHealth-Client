@@ -48,7 +48,6 @@ const getURLData = () => {
 }
 
 function checkUser() {
-    
     getURLData().get("loggedIn") === "true" || sessionStorage.getItem('userId') != null ? sessionStorage.setItem('userId','1234'): window.location='https://bcmhealth.netlify.app/login.html'
   };
 
@@ -77,10 +76,10 @@ function checkUser() {
 // logoutButton();
 
 // Initialization Methods
-$(document).ready(async ()=> {
-    getData()
-    if((/(?:^|\W)index(?:$|\W)/).test(window.location.pathname.toLowerCase()) || (/(?:^|\W)\/(?:$|\W)/).test(window.location.pathname.toLowerCase()) ){
-        return
-    }
-    checkUser()
-})
+// $(document).ready(async ()=> {
+//     getData()
+//     if((/(?:^|\W)index(?:$|\W)/).test(window.location.pathname.toLowerCase()) || (/(?:^|\W)\/(?:$|\W)/).test(window.location.pathname.toLowerCase()) ){
+//         return
+//     }
+//     checkUser()
+// })
