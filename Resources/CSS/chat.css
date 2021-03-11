@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.chat_maincontainer {
+    background: red;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+}
+
+.chat_topbar {
+    background: yellow;
+}
+
+.chat_maincontent {
+    background: blue;
+    display: grid;
+    grid-template-columns: 28vw 72vw;
+}
+
+.chat_sidebar {
+    background: green;
+}
+
+.chat_topbar_actionscontainer {
+    width: 90vw;
+    margin-left: 10vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+.plus_container {
+    margin-right: 2vw;
+}
+
+.conversation_templatecontainer {
+    background: orange;
+    display: flex;
+    justify-content: space-around;
+    padding: 2em 0em;
+}
