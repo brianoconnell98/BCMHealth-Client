@@ -114,3 +114,11 @@ to set up authentication for two kinds of users
 
 
 
+Stats for Information page
+(https://www.wcrf.org/dietandcancer/cancer-trends/breast-cancer-statistics) 
+(https://www.who.int/news-room/fact-sheets/detail/cancer#:~:text=Cancer%20is%20a%20leading%20cause,Breast%20(2.09%20million%20cases) 
+(Brennan L, Kessie T, Caulfield B. Patient Experiences of Rehabilitation and the Potential for an mHealth System with Biofeedback After Breast Cancer Surgery: Qualitative Study. JMIR mHealth and uHealth. 2020;8(7):e19721) 
+(Reigle BS, Zhang B. Women’s rehabilitation experiences following breast cancer surgery. Rehabilitation Nursing Journal. 2018  1;43(4):195-200.)
+(https://ascopost.com/issues/july-10-2016/managing-upper-extremity-dysfunction-in-breast-cancer-survivors/) 
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5587162/
+www.breastcancerireland.com
