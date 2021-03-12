@@ -5,6 +5,14 @@
 const URL = "https://bcmhealthserver.herokuapp.com/"
 const localURL = "http://localhost:8000/"
 
+var pusher = new Pusher('b992bcb8d175d75ddf36', {
+    cluster: 'eu'
+  });
+
+  var channel = pusher.subscribe('my-channel');
+  channel.bind('my-event', function(data) {
+    alert(JSON.stringify(data));
+  });
 // ``
 
 // async means skip and then come back to it 
