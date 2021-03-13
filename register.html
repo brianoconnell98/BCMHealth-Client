@@ -28,8 +28,6 @@
             </ul>
         </nav>
         <div class="patients">
-            <a class="loginbtn" href="login.html">Login</a>
-            <a class="registerbtn live" href="register.html">Register</a>
         </div>
     </header>
 
@@ -85,33 +83,6 @@
         <!-- https://stackoverflow.com/questions/47207878/how-to-add-function-in-toggle-button/47211182 -->
         <!-- https://stackoverflow.com/questions/55354009/how-to-toggle-a-map-locations-using-map-buttons-in-js -->
         <!-- https://stackoverflow.com/questions/50404128/how-to-make-a-button-pressed-by-default-in-html-or-javascript -->
-        <script>
-
-            const toggleButtons = () => {
-                const switcher = document.querySelector(".registertoggle")
-                const formRegisters = [...document.querySelectorAll(".formRegister")]
-                const toggleButtons = [...document.querySelectorAll(".toggleregister_btn")];
-                toggleButtons.map(toggleButton => 
-                    $(toggleButton).click(e => {
-                        if(e.target.dataset.job === "Physio") {
-                            switcher.classList.toggle("left10")
-                        } else {
-                            switcher.classList.remove("left10")
-                        }
-                        toggleButtons.filter(toggleButton => toggleButton.dataset.job != e.target.dataset.job).map(toggleButton => toggleButton.classList.remove("switched"))
-                        e.target.classList.add("switched");
-                        formRegisters.filter(formRegister => formRegister.dataset.job != e.target.dataset.job).map(formRegister => formRegister.classList.remove("displayBlock"))
-                        document.querySelector(`.formRegister[data-job="${e.target.dataset.job}"]`).classList.add("displayBlock")
-                    })
-                )
-            }
-
-            window.onload = () => {
-                toggleButtons(),
-                document.querySelector(`.toggleregister_btn[data-job="Patient"]`).click()
-            };
-            
-        </script>
     </div>
     <!-- Footer -->
     <footer>

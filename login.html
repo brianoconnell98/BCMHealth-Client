@@ -6,7 +6,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="https://kit.fontawesome.com/5d75b5a5f0.js" crossorigin="anonymous"></script>
-    <!-- <script defer src="Resources/JS/main.js"></script> -->
+    <script defer src="Resources/JS/main.js"></script>
     <link rel="stylesheet" href="Resources/CSS/style.css">
     <link rel="stylesheet" href="Resources/CSS/funcClasses.css">
     <title>BCMHEALTH - Login</title>
@@ -28,8 +28,6 @@
             </ul>
         </nav>
         <div class="patients">
-            <a class="loginbtn live" href="login.html">Login</a>
-            <a class="registerbtn" href="register.html">Register</a>
         </div>
     </header>
 
@@ -56,7 +54,7 @@
             <div class="registerboxInner">
             
                 <!-- Patient -->
-                <form class="formRegister displayBlock" data-job="Patient"action="http://localhost:8000/users/login/" method="post" class="input-group">
+                <form class="formLogin displayBlock" action="http://localhost:8000/users/login" method="POST" data-job="Patient" class="input-group">
                     <input type="email" class="login-field line" placeholder="Email" name="email" required>
                     <input type="password" class="login-field line" placeholder="Password" name="password" required>
                     <div class="login-field"><input type="checkbox" class="check-box "><span>Keep me signed in</span></div>
@@ -65,7 +63,7 @@
                 </form>
 
                 <!-- Physiotherapist -->
-                <form class="formRegister"  action="http://localhost:8000/users/login/" data-job="Physio" method="post" class="input-group">
+                <form class="formLogin" data-job="Physio" class="input-group">
                     <input type="email" class="login-field line" placeholder="Email" name="email" required>
                     <input type="password" class="login-field line" placeholder="Password" name="password" required>
                     <div class="login-field"><input type="checkbox" class="check-box "><span>Keep me signed in</span></div>
@@ -78,33 +76,6 @@
 
     <!-- https://stackoverflow.com/questions/47207878/how-to-add-function-in-toggle-button/47211182 -->
     <!-- https://stackoverflow.com/questions/55354009/how-to-toggle-a-map-locations-using-map-buttons-in-js -->
-    <script>
-
-        const toggleButtons = () => {
-            const switcher = document.querySelector(".registertoggle")
-            const formRegisters = [...document.querySelectorAll(".formRegister")]
-            const toggleButtons = [...document.querySelectorAll(".toggleregister_btn")];
-            toggleButtons.map(toggleButton => 
-                $(toggleButton).click(e => {
-                    if(e.target.dataset.job === "Physio") {
-                        switcher.classList.toggle("left10")
-                    } else {
-                        switcher.classList.remove("left10")
-                    }
-                    toggleButtons.filter(toggleButton => toggleButton.dataset.job != e.target.dataset.job).map(toggleButton => toggleButton.classList.remove("switched"))
-                    e.target.classList.add("switched");
-                    formRegisters.filter(formRegister => formRegister.dataset.job != e.target.dataset.job).map(formRegister => formRegister.classList.remove("displayBlock"))
-                    document.querySelector(`.formRegister[data-job="${e.target.dataset.job}"]`).classList.add("displayBlock")
-                })
-            )
-        }
-
-        window.onload = () => {
-            toggleButtons()
-            document.querySelector(`.toggleregister_btn[data-job="Patient"]`).click()
-        };
-
-    </script>
     <!-- Footer -->
     <footer>
         <p>BCMHEALTH &copy; 2020</p>

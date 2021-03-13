@@ -113,6 +113,7 @@ display: block;
   justify-content: flex-end;
 }
 
+.logoutbtn,
 .loginbtn {
 border-radius: 10px;
 border: 1px solid white;
@@ -124,6 +125,7 @@ padding: 0.9rem;
 cursor: pointer;
 }
 
+.logoutbtn:hover,
 .loginbtn:hover {
 border-radius: 10px;
 border: 1px solid hotpink;
@@ -135,27 +137,6 @@ padding: 0.9rem;
 cursor: pointer;
 }
 
-.logoutbtn {
-  border-radius: 10px;
-  border: 1px solid white;
-  background-color: hotpink;
-  color: black;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: 0.9rem;
-  cursor: pointer;
-  }
-  
-  .logoutbtn:hover {
-  border-radius: 10px;
-  border: 1px solid hotpink;
-  background-color:white;
-  color: hotpink;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: 0.9rem; 
-  cursor: pointer;
-  }
 
 .registerbtn {
 border-radius: 10px;
@@ -778,6 +759,7 @@ footer {
     padding: 0em 0.9em;
   }
   
+  .formLogin,
   .formRegister{
     display: none;
   }

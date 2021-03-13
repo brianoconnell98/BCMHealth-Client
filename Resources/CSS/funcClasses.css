@@ -9,3 +9,8 @@
 .displayBlock {
     display: block;
 }
+
+.displayGrid{
+    display: grid;
+}
+

@@ -113,6 +113,16 @@ https://stackoverflow.com/questions/20052617/use-multiple-local-strategies-in-pa
 to set up authentication for two kinds of users
 
 
+https://www.youtube.com/channel/UCqrILQNl5Ed9Dz6CGMyvMTQ
+youtube account where i followed several videos for the creation of the live chat and the implementation of pusher
+and many other tools.
+https://youtu.be/BKY0avHeda8
+https://youtu.be/OgOx6Y40-3s
+
+
+Got advice and tips off Adam on how to best implement the live chat feature.
+
+
 
 Stats for Information page
 (https://www.wcrf.org/dietandcancer/cancer-trends/breast-cancer-statistics) 

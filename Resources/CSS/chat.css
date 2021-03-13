@@ -4,7 +4,7 @@
 }
 
 .chat_maincontainer {
-    background: red;
+    /* background: red; */
     height: 100vh;
     display: grid;
     grid-template-rows: 10vh 90vh;
@@ -15,13 +15,14 @@
 }
 
 .chat_maincontent {
-    background: blue;
+    /* background: blue; */
     display: grid;
     grid-template-columns: 28vw 72vw;
 }
 
 .chat_sidebar {
-    background: green;
+    /* background: green; */
+    border-right: 1px solid #eee;
 }
 
 .chat_topbar_actionscontainer {
@@ -35,11 +36,30 @@
 
 .plus_container {
     margin-right: 2vw;
+    padding: 1em;
 }
 
 .conversation_templatecontainer {
-    background: orange;
+    /* background: orange; */
     display: flex;
     justify-content: space-around;
-    padding: 2em 0em;
+    padding: 2em 1em;
+    border-bottom: 1px solid #eee;
+}
+
+
+.potentialUserConversationListContainerOuter{
+    position: fixed;
+    display: none;
+    place-items: center;
+    top: 0;
+    width: 100vw;
+    bottom: 0;
+    background: rgb(0,0,0,.4);
+}
+
+.potentialUserConversationListContainerInner {
+    background: white;
+    width: 80vw;
+    height: 60vh;
 }
