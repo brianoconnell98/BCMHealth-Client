@@ -124,6 +124,7 @@ Got advice and tips off Adam on how to best implement the live chat feature.
 
 
 
+
 Stats for Information page
 (https://www.wcrf.org/dietandcancer/cancer-trends/breast-cancer-statistics) 
 (https://www.who.int/news-room/fact-sheets/detail/cancer#:~:text=Cancer%20is%20a%20leading%20cause,Breast%20(2.09%20million%20cases) 

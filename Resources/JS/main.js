@@ -1,3 +1,7 @@
+// Front end Pusher code got from pusher.com after watching clever programmers 2 videos listed below
+// https://youtu.be/BKY0avHeda8
+// https://youtu.be/OgOx6Y40-3s 
+
 // var pusher = new Pusher('b992bcb8d175d75ddf36', {
 //     cluster: 'eu'
 //   });
@@ -148,7 +152,6 @@ class UIHelperMethodManager{
                         <h3>${conversation?.Messages[conversation.Messages.length - 1]?.createdAt}</h3>
                     </div>
                 </div>`
-        
     }
     dealWithToggleButtons = () => {
         const switcher = document.querySelector(".registertoggle")
@@ -490,6 +493,8 @@ class FrontEndUI {
 }
 
 // Overall Initialization Method
+// Loading the overall project and then the specified page
+// Gets all the messages conversations and users and reads them from the database
 const bcmHealthWebAppInit = async page_location => {
     const messages = await message_manager.readAllMessages(),
         conversations = await conversation_manager.readAllConversations(),
@@ -501,6 +506,7 @@ const bcmHealthWebAppInit = async page_location => {
 }
 
 // Global Variable Declarations, Class and Function Definitions
+// local url aswell as live url so that it can vary 
 let errorMessages = [];
 const local_server_url = "http://localhost:8000/",
 local_client_url = "http://localhost:5500/",
@@ -512,6 +518,7 @@ user_manager = new UserManager(),
 ui_helper_manager = new UIHelperMethodManager();
 
 // Initialization Methods
+// This reads the window and if it includes the text it redirects you to that window location
 $(document).ready(() => {
     switch (true) {
         case (/(?:^|\W)index(?:$|\W)/).test(window.location.pathname.toLowerCase()) || (/(?:^|\W)\/(?:$|\W)/).test(window.location.pathname.toLowerCase()):
