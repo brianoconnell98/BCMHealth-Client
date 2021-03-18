@@ -14,3 +14,68 @@
     display: grid;
 }
 
+.messageRight {
+    background: lightpink;
+    margin-left: auto;
+}
+
+.messageLeft {
+    background: white;
+    border: 3px solid lightpink;
+}
+
+.newMessageFlash{
+    background: lightpink;
+}
+
+.messageRight:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 17px solid lightpink;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    bottom: 0px;
+    right: -10px;
+    transform: rotate(40deg);
+}
+
+.messageRight:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid lightpink;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    bottom: 0;
+    right: -10px;
+    transform: rotate(40deg);
+}
+
+.messageLeft:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 17px solid lightpink;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    bottom: -11px;
+    transform: rotate(-40deg);
+    left: -14px;
+}
+
+.messageLeft:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 14px solid white;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    bottom: -8px;
+    left: -11.5px;
+    transform: rotate(-40deg);
+}

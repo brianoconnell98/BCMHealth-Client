@@ -2,14 +2,7 @@
 // https://youtu.be/BKY0avHeda8
 // https://youtu.be/OgOx6Y40-3s 
 
-// var pusher = new Pusher('b992bcb8d175d75ddf36', {
-//     cluster: 'eu'
-//   });
 
-//   var channel = pusher.subscribe('my-channel');
-//   channel.bind('my-event', function(data) {
-//     alert(JSON.stringify(data));
-//   });
 // // ``
 
 class UserManager{
@@ -17,20 +10,19 @@ class UserManager{
         try {
             const {data: createdUser} = await axios.post(`${local_server_url}users`, newUser)
 
-            // Check for and errors
-            if(createdUser[0].msg === null) return
-            else {
-                alert(createdUser[0].msg)
+            // Check for success message
+            if(createdUser?.success_msg !== undefined) {
+                alert(createdUser?.success_msg)
                 setTimeout(() => {
-                    window.location = createdUser[0].redirectUrl
+                    window.location = createdUser[0]?.redirectUrl
                 }, 2000)
-            } 
+            }
 
             // Set the Session Key for the user
-            GeneralHelperMethodManager.setLoginStatus(createdUser.user._id)
+            GeneralHelperMethodManager.setLoginStatus(createdUser?.user._id)
 
             // Redirect To Support Page
-            window.location = createdUser.redirectUrl
+            window.location = createdUser?.redirectUrl
 
         } catch (error) {
             
@@ -81,11 +73,33 @@ class UserManager{
 
 
 class ConversationManager{
-    createConversation = newData => {
+    createConversation = async (sender_id, receiver_id, messages = []) => {
         try {
+            // Error handling
+            let errors = [];
+            sender_id = sender_id  ?? errors.push("Sender is not valid");
+            receiver_id = receiver_id ?? errors.push("Receiver is not valid");
+
+            if(errors.length !== 0) return 
+
+            // make the conversation object 
+            let conversationObject = {
+                Sender: sender_id,
+                Receiver: receiver_id,
+                Messages: messages
+            }
+
+            // pass the object to the new conversation route on our backend
+            let {data: {_id: conversation_id}} = await axios.post(`${local_server_url}conversations/new_conversation`, conversationObject)
             
+            // checking the conversation id is not null
+            ValidationHelperMethodManager.checkConversationIdIsValid(conversation_id)
+
+            // returning the id to deal with new conversation
+            return conversation_id
+
         } catch (error) {
-            
+            console.log(error)
         }
     }
     readAllConversations = async () => {
@@ -96,8 +110,33 @@ class ConversationManager{
             console.log(error)
         }
     }
-    readSingleConversation = userId => {
+    readSingleConversationsMessages = async conversationId => {
+        try {
 
+            // Error handling
+            let errors = [];
+            conversationId = conversationId  ?? errors.push("Sender is not valid");
+
+            if(errors.length !== 0) return 
+
+            // Getting the messages related to the conversation selected by related id
+            const {data:conversation_messages_found} = await axios.get(`${local_server_url}conversations/${conversationId}`);
+
+            // Returning the messages related to the conversation
+            return conversation_messages_found
+
+        } catch (error) {
+            // Retrieving the errors and assigning first error message and redirectURL
+            const {data:errors} = error.response,
+            first_error = errors[0],
+            first_error_message = first_error.msg;
+
+             // Alert First Error message and redirect to URL specified in first error
+            alert(first_error_message)
+            setTimeout(() => {
+                window.location = first_error.redirectUrl
+            }, 2000)
+        }
     }
     deleteSingleConversation = userId => {
 
@@ -137,22 +176,116 @@ class UIHelperMethodManager{
         conversations
         .filter(conversation => ValidationHelperMethodManager.checkUserLoggedInIDAgainstPeopleInvolvedInConversation(conversation?.Sender?._id , conversation?.Receiver?._id))
         .map(conversation => this.createHTMLTemplateForConversation(conversation))
+        .join("")
         
         //Filling the container with the conversation template
         conversation_container.innerHTML = conversationHTMLTemplates
     }
+
+    fillMessageContainerWithConversationRelatedMsgs = conversation => {
+
+        // Getting the messages from selected conversation
+        let messages = conversation?.Messages ?? [];
+
+        // Getting messages container
+        const messages_container = document.querySelector(".chat_messagecontainer")
+
+        // Creating the html template for a message
+        const messageHTMLTemplates = 
+        messages
+        .map(message => this.createHTMLTemplateForMessage(message))
+        .join("")
+
+        // Getting the receiver name 
+        let receiver_name = conversation?.Receiver?.name ?? ""
+
+        // Filling the container with the messages template
+        messages_container.innerHTML = `
+        <div class="receiver_name_banner">
+            <h1>${receiver_name}</h1>
+        </div>
+        <div class="message_content_container">
+        ${messageHTMLTemplates}
+        </div>
+        `
+    }
+
+    dealWithConversationContainerClick = () => {
+        // getting the conversation containers
+        const conversationContainers = [...document.querySelectorAll(".conversation_templatecontainer")];
+        
+        // Mapping through all conversation containers and listening for a click
+        conversationContainers.map( conversationContainer => {
+            $(conversationContainer).click(async event => {
+
+                // Remove newMessage color if applied
+                event?.currentTarget?.classList?.remove("newMessageFlash")
+
+                // getting the conversation_id and getting all the messages from that conversation
+                const conversation_related_messages = await conversation_manager.readSingleConversationsMessages(event?.currentTarget?.dataset?.id)
+
+                // Fill The message Container
+                ui_helper_manager.fillMessageContainerWithConversationRelatedMsgs(conversation_related_messages)
+
+            })
+        })
+
+    }
+
+
+    dealWithConversationUserButtonClick = () => {
+        // Retrieving all conversation user buttons
+        const conversationUserButtons = [...document.querySelectorAll(".potential_conversationUser")];
+        
+        // Mapping through all conversation user buttons and listening for a click
+        conversationUserButtons.map(
+            conversationUserBtn => $(conversationUserBtn).click(e => {
+                // passing the values of receiver and sender to create our new conversation
+                const conversation_id = conversation_manager.createConversation(sessionStorage?.getItem("userId"), e.currentTarget?.dataset?.id)
+
+                // checking the conversation id is not null
+                ValidationHelperMethodManager.checkConversationIdIsValid(conversation_id)
+
+                // removing possible conversation users pop up
+                document.querySelector('.potentialUserConversationListContainerOuter')?.classList.remove('displayGrid');
+
+
+            }) 
+        )
+    }
+
     createHTMLTemplateForConversation = conversation => {
+        let last_message = conversation?.Messages[conversation.Messages.length - 1] ?? "",
+        last_message_content = last_message?.Content ?? "",
+        last_message_date =  last_message?.createdAt?.split("T")[0] ?? "",
+        last_message_time =  last_message?.createdAt?.split("T")[1]?.split(".")[0] ?? "",
+        last_message_time_data = [last_message_date , last_message_time];
+
         return `
-        <div class="conversation_templatecontainer">
+        <div class="conversation_templatecontainer" data-id="${conversation?._id}">
                     <div class="conversation_templatersmall">
                         <h3>${conversation?.Receiver?.name}</h3>
-                        <h3>${conversation?.Messages[conversation.Messages.length - 1]?.Content}</h3>
+                        <h3 class="last_message_content">${last_message_content}</h3>
                     </div>
                     <div class="conversation_templatersmall">
-                        <h3>${conversation?.Messages[conversation.Messages.length - 1]?.createdAt}</h3>
+                        <sup>${last_message_time_data[1]}</sup>
+                        <sup>${last_message_time_data[0]}</sup>
                     </div>
                 </div>`
     }
+
+    createHTMLTemplateForMessage = message => {
+        // Get message sender
+        let message_sender = message?.sender?.senderId ?? "";
+    
+        // Checking message sender against logged in user and displaying message location and style accordingly
+        return `
+            <div class="message_templatecontainer ${sessionStorage.getItem("userId") === message_sender ? "messageRight" : "messageLeft"}">
+                <h3>${message?.Content}</h3>
+            </div>
+        `
+    }
+
     dealWithToggleButtons = () => {
         const switcher = document.querySelector(".registertoggle")
         const forms = [...document.querySelectorAll("form")]
@@ -194,6 +327,9 @@ class UIHelperMethodManager{
     }
     displayPossiblePeopleForConversation = (users, conversations) => {
 
+        // filter out the logged in user as they ate not involved in conversations
+        users = users.filter(user => user._id !== sessionStorage.getItem("userId"))
+
         // Filtering Conversations By Conversations User Logged In is Involved in
         let involvements = 
         conversations
@@ -222,13 +358,11 @@ class UIHelperMethodManager{
         // Display the Possible List Container
         document.querySelector('.potentialUserConversationListContainerOuter')?.classList.add('displayGrid');
 
-
-
     }
 
     createPossibleConversationUserTemplateHTML = potential_user => {
         return `
-            <div>
+            <div class="potential_conversationUser" data-id="${potential_user._id}">
                 <h3>${potential_user.name}</h3>
             </div>
         `
@@ -273,9 +407,21 @@ class ValidationHelperMethodManager {
     static checkUserLoggedInIDAgainstPeopleInvolvedInConversation = (senderId , receiverId) =>{
      return senderId === sessionStorage.getItem("userId") || receiverId === sessionStorage.getItem("userId") ? true : false
     }
+
+    static checkConversationIdIsValid = conversation_id => {
+        return conversation_id !== null ? conversation_id : alert("Please try again, we couldn't create a conversation")
+    }
 }
 
+// https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw
+// https://www.youtube.com/watch?v=5AWRivBk0Gw
 
+// https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg - net ninja
+// https://www.youtube.com/watch?v=Ug4ChzopcE4
+
+// https://www.youtube.com/watch?v=T-HGdc8L-7w
+
+// Traversy Media - https://www.youtube.com/watch?v=RBLIm5LMrmc
 
 class FrontEndUI {
     constructor(messages, conversations, users, page_location) {
@@ -467,6 +613,41 @@ class FrontEndUI {
 
     // ______________ Chat Portal Page Functions Start ________________
     chatPortalPageInit = () => {
+
+        // Import pusher and set up our channels 
+        let pusher = new Pusher('b992bcb8d175d75ddf36', {
+            cluster: 'eu'
+        });
+        
+        let conversationChannel = pusher.subscribe('conversations');
+        conversationChannel.bind('newConversation', async() => {
+            
+            // Call function to get all the conversations again to pick up new one
+            FrontEndUI.front_end_ui.conversations = await conversation_manager.readAllConversations();
+
+            // Fill the container again which will contain new conversation
+            ui_helper_manager.fillConversationContainerWithConversations(FrontEndUI.front_end_ui.conversations);
+
+
+        });
+
+        let messageChannel = pusher.subscribe('messages');
+        messageChannel.bind('newMessage', async conversation_data => {
+
+            // Get the conversation id updated 
+            let conversation_id_updated = conversation_data?.change?.documentKey?._id
+
+            // Get the conversation associated with the id gathered from pusher
+            let conversation_found = await conversation_manager.readSingleConversationsMessages(conversation_id_updated)
+
+            // Click the container with the associated id
+            document.querySelector(`.conversation_templatecontainer[data-id="${conversation_id_updated}"]`).classList.add("newMessageFlash")
+
+            // Fill message container 
+            ui_helper_manager.fillMessageContainerWithConversationRelatedMsgs(conversation_found);
+
+        });
+
         // Check if user is logged in 
         ValidationHelperMethodManager.checkLoginRedirect()
 
@@ -483,7 +664,12 @@ class FrontEndUI {
             // Displaying of possible people for a conversation
             ui_helper_manager.displayPossiblePeopleForConversation(FrontEndUI.front_end_ui.users, FrontEndUI.front_end_ui.conversations,)
 
+            // Deal with Possible conversation user button click
+            ui_helper_manager.dealWithConversationUserButtonClick();
         })
+
+        // Deal with conversation click
+        ui_helper_manager.dealWithConversationContainerClick()
     }
 
     // ______________ Chat Portal Page Functions End ________________

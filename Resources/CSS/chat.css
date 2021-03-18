@@ -4,7 +4,6 @@
 }
 
 .chat_maincontainer {
-    /* background: red; */
     height: 100vh;
     display: grid;
     grid-template-rows: 10vh 90vh;
@@ -15,14 +14,18 @@
 }
 
 .chat_maincontent {
-    /* background: blue; */
     display: grid;
     grid-template-columns: 28vw 72vw;
 }
 
 .chat_sidebar {
-    /* background: green; */
     border-right: 1px solid #eee;
+}
+
+.chat_messagecontainer {
+    height: 90vh;
+    overflow-x: hidden; 
+    overflow-y: auto; 
 }
 
 .chat_topbar_actionscontainer {
@@ -40,13 +43,18 @@
 }
 
 .conversation_templatecontainer {
-    /* background: orange; */
     display: flex;
     justify-content: space-around;
     padding: 2em 1em;
     border-bottom: 1px solid #eee;
+    cursor: pointer;
 }
 
+.last_message_content {
+    max-width: 17vw;
+    font-weight: 100;
+    margin-top: 1em;
+}
 
 .potentialUserConversationListContainerOuter{
     position: fixed;
@@ -63,3 +71,28 @@
     width: 80vw;
     height: 60vh;
 }
+
+.receiver_name_banner{
+    display: grid;
+    place-items: center;
+    height: 10vh;
+    border-bottom: 1px solid #eee;
+}
+
+.message_content_container {
+    padding: 2em 2em;
+}
+
+.message_templatecontainer {
+    display: flex;
+    position: relative;
+    padding: 1em;
+    border: 1px solid #eee;
+    width: fit-content;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    margin: 2em 0em;
+    max-width: 40vw;
+}
+
+

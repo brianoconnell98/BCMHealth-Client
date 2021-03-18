@@ -122,7 +122,27 @@ https://youtu.be/OgOx6Y40-3s
 
 Got advice and tips off Adam on how to best implement the live chat feature.
 
+Used Stackoverflow to help with many minor issues and tips to get live chat functionality 
+https://www.w3schools.com/jsref/jsref_push.asp
 
+mapping through an array
+https://stackoverflow.com/questions/46986710/return-multiple-values-from-es6-map-function
+
+Edited the live server root directory
+https://github.com/ritwickdey/vscode-live-server/issues/33
+https://www.reddit.com/r/NoStupidQuestions/comments/9ckjjj/how_to_change_the_root_directory_for_live_server/
+https://github.com/ritwickdey/vscode-live-server/blob/master/docs/settings.md
+
+Helped understand the use of contructors classes and objects in js
+https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw
+https://www.youtube.com/watch?v=5AWRivBk0Gw
+
+https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg - net ninja
+https://www.youtube.com/watch?v=Ug4ChzopcE4
+
+https://www.youtube.com/watch?v=T-HGdc8L-7w
+
+Traversy Media - https://www.youtube.com/watch?v=RBLIm5LMrmc
 
 
 Stats for Information page
