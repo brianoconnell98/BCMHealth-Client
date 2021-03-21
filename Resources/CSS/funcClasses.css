@@ -28,6 +28,9 @@
     background: lightpink;
 }
 
+/* https://codepen.io/ezenith/pen/pJLypJ */
+/* make the div look like messages */
+
 .messageRight:before {
     content: '';
     position: absolute;

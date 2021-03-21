@@ -144,6 +144,28 @@ https://www.youtube.com/watch?v=T-HGdc8L-7w
 
 Traversy Media - https://www.youtube.com/watch?v=RBLIm5LMrmc
 
+https://www.geeksforgeeks.org/making-a-div-vertically-scrollable-using-css/#:~:text=Making%20a%20div%20vertically%20scrollable%20is%20easy%20by%20using%20CSS,overflow%2Dy%3Aauto%3B. */
+Making the scroll bars 
+
+
+https://www.w3schools.com/jquery/jquery_events.asp
+Utilzing jQuery for the click event
+
+
+https://www.youtube.com/watch?v=v2tJ3nzXh8I
+'??' = null or undefined
+'?' = so the code wont crash here if there is no value
+
+
+Privacy Policy for BCMHealth in accordance with GDPR
+https://www.privacypolicyonline.com/live.php?token=RzUSQo86LNK4Tj3YzUJbjBMfuJLvLJPV
+https://www.privacypolicyonline.com/privacy-policy-template/ 
+
+
+Terms Of Service for BCMHealth in accordance with GDPR
+https://www.termsservicetemplate.com/terms-service-generator 
+
+
 
 Stats for Information page
 (https://www.wcrf.org/dietandcancer/cancer-trends/breast-cancer-statistics) 

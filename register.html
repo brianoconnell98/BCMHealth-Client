@@ -36,9 +36,9 @@
     <div class="wrapper">
         <section class="register-top">
             <div class="register-title">
-              <i class="fas fa-users fa-4x"></i>
-              <h1>Register here for BCMHEALTH</h1>
-              <i class="fas fa-users fa-4x"></i>
+            <i class="fas fa-users fa-4x"></i>
+            <h1>Register here for BCMHEALTH</h1>
+            <i class="fas fa-users fa-4x"></i>
             </div>
 
             <!-- tutorial for registration page https://www.youtube.com/watch?v=L5WWrGMsnpw-->
@@ -60,7 +60,7 @@
                         <input type="integer" class="input-field line" placeholder="Age" name="age" required>
                         <input type="password" class="input-field line" placeholder="Password" name="password" required>
                         <input type="password" class="input-field line" placeholder="Re-Enter Password" name="password2" required>
-                        <div class="input-field"><input type="checkbox" class="check-box "><span>I agree to the terms & conditions</span></div>
+                        <div class="input-field"><input type="checkbox" class="check-box " required><span>I agree to the terms & conditions</span></div>
                         <button type="submit" class="submit-btn">Register</button>
                         <a href="login.html">Have an account?</a>
                     </form>
@@ -72,7 +72,7 @@
                     <input type="text" class="input-field line" placeholder="Location" name="location"required>
                     <input type="password" class="input-field line" placeholder="Password" name="password" required>
                     <input type="password" class="input-field line" placeholder="Re-Enter Password" name="password2" required>
-                    <div class="input-field"><input type="checkbox" class="check-box "><span>I confirm I am a registered Physiotherapist</span></div>
+                    <div class="input-field"><input type="checkbox" class="check-box " required><span>I confirm I am a registered Physiotherapist</span></div>
                     <button type="submit" class="submit-btn">Register</button>
                     <a href="login.html">Have an account?</a>
                     </form>
@@ -87,7 +87,10 @@
     <!-- Footer -->
     <footer>
         <p>BCMHEALTH &copy; 2020</p>
-      </footer>
-  
-  </body>
-  </html>
+        <p>
+            <a href="privacyPolicy.html">Privacy Policy</a> /
+            <a href="termsOfService.html">Terms of Service Policy</a>
+        </p>
+    </footer>
+</body>
+</html>

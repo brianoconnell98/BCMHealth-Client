@@ -209,6 +209,12 @@ footer {
     grid-gap: 20px;
   }
   
+  .border {
+    display: grid;
+    box-shadow: var(--shadow);
+    padding: 2em;
+  }
+  
   /* Top Container */
   .top-container {
     display: grid;

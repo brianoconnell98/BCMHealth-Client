@@ -2,8 +2,7 @@
 // https://youtu.be/BKY0avHeda8
 // https://youtu.be/OgOx6Y40-3s 
 
-
-// // ``
+// ``
 
 class UserManager{
     createUser = async newUser => {
@@ -26,7 +25,7 @@ class UserManager{
 
         } catch (error) {
             
-            // Retrieveing the errors and assigning first error message and redirectURL
+            // Retrieving the errors and assigning first error message and redirectURL
             const {data:errors} = error.response,
             first_error = errors[0],
             first_error_message = first_error.msg;
@@ -38,6 +37,8 @@ class UserManager{
             }, 2000) 
         }
     }
+
+    // getting all physios and patients
     readAllUsers = async () => {
         try {
             let {data: users} = await axios.get(`${local_server_url}users`)
@@ -46,6 +47,8 @@ class UserManager{
             console.log(error)
         }
     }
+
+    // user logging in
     readSingleUser = async userLogggingIn => {
         try {
             const {data: loggedInUser} = await axios.post(`${local_server_url}users/login`, userLogggingIn)
@@ -71,8 +74,12 @@ class UserManager{
     }
 }
 
+// https://www.youtube.com/watch?v=v2tJ3nzXh8I
+// '??' = null or undefined
+// '?' = so the code wont crash here if there is no value
 
 class ConversationManager{
+    // creating a new message and posting it to the server and into the database
     createConversation = async (sender_id, receiver_id, messages = []) => {
         try {
             // Error handling
@@ -102,6 +109,8 @@ class ConversationManager{
             console.log(error)
         }
     }
+
+    // getting all conversations from the database
     readAllConversations = async () => {
         try {
             let {data: conversations} = await axios.get(`${local_server_url}conversations`)
@@ -151,6 +160,8 @@ class MessageManager{
             
         }
     }
+
+    // getting all the messages
     readAllMessages = async () =>  {
         try {
             let {data: conversations} = await axios.get(`${local_server_url}conversations`)
@@ -237,6 +248,9 @@ class UIHelperMethodManager{
         // Retrieving all conversation user buttons
         const conversationUserButtons = [...document.querySelectorAll(".potential_conversationUser")];
         
+        // Utilzing jQuery for the click event
+        //https://www.w3schools.com/jquery/jquery_events.asp
+
         // Mapping through all conversation user buttons and listening for a click
         conversationUserButtons.map(
             conversationUserBtn => $(conversationUserBtn).click(e => {
@@ -369,6 +383,7 @@ class UIHelperMethodManager{
     }
 }
 
+// 
 class GeneralHelperMethodManager {
     static getQueryParamsFromURL = () => {
         return new URLSearchParams(window.location.search)
@@ -452,6 +467,10 @@ class FrontEndUI {
             this.supportPageInit()
         } else if(page_location === "chatPortal"){
             this.chatPortalPageInit()
+        } else if(page_location === "privacyPolicy"){
+            this.privacyPolicyPageInit()
+        } else if(page_location === "termsOfService"){
+            this.termsOfServicePageInit()
         } 
 
     }
@@ -659,7 +678,7 @@ class FrontEndUI {
         ui_helper_manager.fillConversationContainerWithConversations(FrontEndUI.front_end_ui.conversations)
 
         // Deal With Add Conversation Button Click
-        $('.plus_container').click(() => {
+        $('.plus_container_i').click(() => {
 
             // Displaying of possible people for a conversation
             ui_helper_manager.displayPossiblePeopleForConversation(FrontEndUI.front_end_ui.users, FrontEndUI.front_end_ui.conversations,)
@@ -674,7 +693,26 @@ class FrontEndUI {
 
     // ______________ Chat Portal Page Functions End ________________
 
+    // ______________ Privacy Policy Page Functions Start ________________
+    privacyPolicyPageInit = () => {
 
+        // Check LoginStatus and deal With Login Buttons
+        ValidationHelperMethodManager.checkLoginButtonChange();
+        ui_helper_manager.dealWithLogoutBtnClick();
+    }
+
+    // ______________ Privacy Policy Page Functions End ________________
+
+
+    // ______________ Terms of Service Page Functions Start ________________
+    termsOfServicePageInit = () => {
+
+        // Check LoginStatus and deal With Login Buttons
+        ValidationHelperMethodManager.checkLoginButtonChange();
+        ui_helper_manager.dealWithLogoutBtnClick();
+    }
+
+    // ______________ Terms of Service Page Functions End ________________
 
 }
 
@@ -738,6 +776,14 @@ $(document).ready(() => {
         case (/(?:^|\W)chatportal(?:$|\W)/).test(window.location.pathname.toLowerCase()):
             // Web App Initialization
             bcmHealthWebAppInit("chatPortal")
+            break
+        case (/(?:^|\W)privacypolicy(?:$|\W)/).test(window.location.pathname.toLowerCase()):
+            // Web App Initialization
+            bcmHealthWebAppInit("privacyPolicy")
+            break
+        case (/(?:^|\W)termsofservice(?:$|\W)/).test(window.location.pathname.toLowerCase()):
+            // Web App Initialization
+            bcmHealthWebAppInit("termsOfService")
             break
     }
 })
