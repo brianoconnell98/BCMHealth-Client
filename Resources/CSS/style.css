@@ -64,18 +64,6 @@ padding: .8rem;
 cursor: pointer;
 }
 
-/* active for register + login buttons in nav bar - why isn't that working?*/
-.live {
-border-radius: 10px;
-border: 1px solid white;
-background-color:blue;
-color: hotpink;
-font-size: 1.2rem;
-text-decoration: none;
-padding: .8rem;
-cursor: pointer;
-}
-
 /* https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp#:~:text=Example%20Explained,
  dropdown%20menu%20correctly%20with%20CSS. */
 /* Dropdown content (hidden by default) */
@@ -541,6 +529,52 @@ footer {
     color: black;
   }
 
+  .support_container {
+    display: grid;
+  }
+
+  .support_container p{
+    padding: 0em 2em;
+  }
+
+  .support_container h3{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .chat_portal_btn {
+
+  }
+
+  .chat_portal_btn {
+    width: 10vw;
+    border-radius: 10px;
+    border: 2px solid hotpink;
+    background-color: black;
+    color: hotpink;
+    font-size: 1em;
+    text-decoration: none;
+    padding: 1.5em;
+    cursor: pointer;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  
+  .chat_portal_btn:hover {
+    width: 10vw;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color:hotpink;
+    color: black;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 1.5em;
+    cursor: pointer;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 2em;
+  }
   /* Login Page CSS */
   .login-top {
     display: grid;
@@ -627,6 +661,19 @@ footer {
     display: flex;
     justify-content: space-around;
     padding: 2rem;
+  }
+
+  .google_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .google_container img{
+    height:7rem;
+    width:14rem;
   }
 
   /* Register Page CSS */

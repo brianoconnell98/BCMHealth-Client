@@ -13,28 +13,26 @@
     background: hotpink;
 }
 
-.chat_maincontent {
+.chat_containersm {
     display: grid;
     grid-template-columns: 28vw 72vw;
+}
+
+.chat_sidebar {
+    border-right: 1px solid #eee;
+    padding: 2em 2em;
+    height: 78vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.chat_maincontent {
+    height: 80vh;
 }
 
 /* https://www.geeksforgeeks.org/making-a-div-vertically-scrollable-using-css/ _
 #:~:text=Making%20a%20div%20vertically%20scrollable%20is%20easy%20by%20using%20CSS,overflow%2Dy%3Aauto%3B. */
 /* Making the scroll bars */
-
-.chat_sidebar {
-    border-right: 1px solid #eee;
-    padding: 2em 2em;
-    height: 80vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.chat_messagecontainer {
-    /* height: 90vh; 
-    overflow-x: hidden; 
-    overflow-y: auto;  */
-}
 
 .chat_topbar_actionscontainer {
     width: 90vw;
@@ -118,13 +116,13 @@
 .receiver_name_banner{
     display: grid;
     place-items: center;
-    height: 10vh;
+    height: 7vh;
     border-bottom: 1px solid #eee;
 }
 
 .message_content_container {
     padding: 2em 2em;
-    height: 69vh;
+    height: 64vh;
     overflow-x: hidden; 
     overflow-y: auto; 
 }
@@ -141,4 +139,28 @@
     max-width: 40vw;
 }
 
+.new_messagecontainer {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 5vh;
+    max-width: 40vw;
+    padding: 1em;
+    border-radius: 10px;
+    width: fit-content;
+    border: 10x solid grey;
+}
+
+.submit-btn {
+    border-radius: 20px;
+    background-color:black;
+    color: hotpink;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: .7rem;
+    cursor: pointer;
+    margin-left: 1em;
+    align-items: center;
+    justify-content: center;
+}
 

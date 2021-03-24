@@ -49,9 +49,9 @@ class UserManager{
     }
 
     // user logging in
-    readSingleUser = async userLogggingIn => {
+    readSingleUser = async userLoggingIn => {
         try {
-            const {data: loggedInUser} = await axios.post(`${local_server_url}users/login`, userLogggingIn)
+            const {data: loggedInUser} = await axios.post(`${local_server_url}users/login`, userLoggingIn)
 
             // Check for and errors
             if(loggedInUser.msg === null) return 
@@ -66,6 +66,27 @@ class UserManager{
             console.log(error)
         }
     }
+
+    // google OAuth user
+    readSingleUser = async googleUserLoggingIn => {
+        try {
+            const {data: loggedInGoogleUser} = await axios.post(`${local_server_url}auth-routes/login`, googleUserLoggingIn)
+
+            // Check for and errors
+            if(loggedInGoogleUser === null) return
+
+            // Set the Session Key for the user
+            GeneralHelperMethodManager.setLoginStatus(loggedInGoogleUser.user._id)
+
+            // Redirect To Support Page
+            window.location = loggedInGoogleUser.redirectUrl
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    
     updateSingleUser = (userId , updatedData) => {
 
     }
@@ -218,6 +239,10 @@ class UIHelperMethodManager{
         <div class="message_content_container">
         ${messageHTMLTemplates}
         </div>
+        <div class="new_messagecontainer">
+            <input type="textarea" name="" id="">
+            <button class="submit-btn">Send Message</button>
+        </div>
         `
     }
 
@@ -341,7 +366,7 @@ class UIHelperMethodManager{
     }
     displayPossiblePeopleForConversation = (users, conversations) => {
 
-        // filter out the logged in user as they ate not involved in conversations
+        // filter out the logged in user as they are not involved in conversations
         users = users.filter(user => user._id !== sessionStorage.getItem("userId"))
 
         // Filtering Conversations By Conversations User Logged In is Involved in
@@ -522,6 +547,9 @@ class FrontEndUI {
 
             // Login User form DB
             user_manager.readSingleUser(userLoggingIn)
+
+            // Login User from OAuth
+
 
         })
     }
