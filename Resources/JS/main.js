@@ -48,7 +48,7 @@ class UserManager{
         }
     }
 
-    // user logging in
+    // Normal user logging in
     readSingleUser = async userLoggingIn => {
         try {
             const {data: loggedInUser} = await axios.post(`${local_server_url}users/login`, userLoggingIn)
@@ -68,9 +68,9 @@ class UserManager{
     }
 
     // google OAuth user
-    readSingleUser = async googleUserLoggingIn => {
+    readSingleGoogleUser = async () => {
         try {
-            const {data: loggedInGoogleUser} = await axios.post(`${local_server_url}auth-routes/login`, googleUserLoggingIn)
+            const {data: loggedInGoogleUser} = await axios.get(`${local_server_url}auth/google`)
 
             // Check for and errors
             if(loggedInGoogleUser === null) return
@@ -100,7 +100,7 @@ class UserManager{
 // '?' = so the code wont crash here if there is no value
 
 class ConversationManager{
-    // creating a new message and posting it to the server and into the database
+    // creating a new conversation and posting it to the server and into the database
     createConversation = async (sender_id, receiver_id, messages = []) => {
         try {
             // Error handling
@@ -174,11 +174,35 @@ class ConversationManager{
 }
 
 class MessageManager{
-    createMessage = (newData, conversationId) => {
+    // creating a new message and posting it to the server and into the database
+    createMessage = async (sender_id, senderName, messages = []) => {
+        
+
         try {
+            // Error handling
+            let errors = [];
+            e.target.value = e.target?.value ?? errors.push("Please send a valid message");
+
+            if(errors.length !== 0) return
+
+            // make the conversation object 
+            let messageObject = {
+                Sender: sender_id,
+                SenderName: senderName,
+                Content: messages
+            }
+
+            // pass the object to the new message route on our backend
+            let {data: {_id: message_id}} = await axios.post(`${local_server_url}conversations/${conversation_id}/new_message`, messageObject)
             
+            // checking the message id is not null
+            ValidationHelperMethodManager.checkMessageIdIsValid(message_id)
+
+            // returning the id to deal with new conversation
+            return message_id
+
         } catch (error) {
-            
+            console.log(error)
         }
     }
 
@@ -230,6 +254,7 @@ class UIHelperMethodManager{
 
         // Getting the receiver name 
         let receiver_name = conversation?.Receiver?.name ?? ""
+        let conversation_id = conversation?._id ?? ""
 
         // Filling the container with the messages template
         messages_container.innerHTML = `
@@ -239,11 +264,22 @@ class UIHelperMethodManager{
         <div class="message_content_container">
         ${messageHTMLTemplates}
         </div>
-        <div class="new_messagecontainer">
-            <input type="textarea" name="" id="">
+        <div class="new_messagecontainer" data-id="${conversation_id}">
+            <input type="textbox" name="" id="">
             <button class="submit-btn">Send Message</button>
         </div>
         `
+    }
+
+    dealWithGoogleLoginButtonClick = () => {
+        // getting the google login button
+        const googleBtn = document.querySelector(".google_container");
+
+        // listen for a click on the button
+        $(googleBtn).click(() => {
+            // sending google OAuth request with axios
+            user_manager.readSingleGoogleUser()
+        })
     }
 
     dealWithConversationContainerClick = () => {
@@ -265,7 +301,6 @@ class UIHelperMethodManager{
 
             })
         })
-
     }
 
 
@@ -290,6 +325,22 @@ class UIHelperMethodManager{
 
 
             }) 
+        )
+    }
+
+    dealWithNewMessageSentButtonClick = () => {
+        // Adding new message to the conversation
+        const newMessageButton = [...document.querySelectorAll(".new_messagecontainer")];
+
+        // Waiting for a new message to be selected
+        newMessageButton.map( newMessageBtn => 
+            $(newMessageBtn).click(e => {
+                // passing the values of receiver and sender to create our new message
+                const message_id = conversation_manager.createMessage(sessionStorage?.getItem("userId"), e.currentTarget?.dataset?.id)
+
+                // checking the conversation id is not null
+                ValidationHelperMethodManager.checkMessageBoxIsNotNull(message_id)
+            })
         )
     }
 
@@ -445,11 +496,15 @@ class ValidationHelperMethodManager {
         document.querySelector(".patients") ? document.querySelector(".patients").innerHTML = login_buttons_container_html : null
     }
     static checkUserLoggedInIDAgainstPeopleInvolvedInConversation = (senderId , receiverId) =>{
-     return senderId === sessionStorage.getItem("userId") || receiverId === sessionStorage.getItem("userId") ? true : false
+    return senderId === sessionStorage.getItem("userId") || receiverId === sessionStorage.getItem("userId") ? true : false
     }
 
     static checkConversationIdIsValid = conversation_id => {
         return conversation_id !== null ? conversation_id : alert("Please try again, we couldn't create a conversation")
+    }
+
+    static checkMessageBoxIsNotNull = message_content => {
+        return message_content !== null ? message_content : alert("Please try again, there was no content in the message")
     }
 }
 
@@ -525,6 +580,9 @@ class FrontEndUI {
         // Deal With Form Login 
         FrontEndUI.front_end_ui.dealWithFormLogin()
 
+        // Deal with google OAuth login
+        ui_helper_manager.dealWithGoogleLoginButtonClick()
+
     }
     dealWithFormLogin = () => {
         
@@ -548,10 +606,11 @@ class FrontEndUI {
             // Login User form DB
             user_manager.readSingleUser(userLoggingIn)
 
-            // Login User from OAuth
-
 
         })
+
+         // Login User from OAuth
+
     }
     // ______________ Login Page Functions End ________________
 
@@ -717,6 +776,13 @@ class FrontEndUI {
 
         // Deal with conversation click
         ui_helper_manager.dealWithConversationContainerClick()
+
+        // Deal with New Message Button Click
+        $('.new_messagecontainer_btn').click(() => {
+
+            // Deal with send new message click
+
+        })
     }
 
     // ______________ Chat Portal Page Functions End ________________
