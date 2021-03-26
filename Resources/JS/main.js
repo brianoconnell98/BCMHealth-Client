@@ -377,6 +377,7 @@ class UIHelperMethodManager{
     }
 
     dealWithNewMessageSentButtonClick = () => {
+        // https://www.youtube.com/watch?v=3oOKAJTD2F8 - queryselectorall tutorial
         // Adding new message to the conversation
         const newMessageButton = [...document.querySelectorAll(".new_messagecontainer")];
 
@@ -429,6 +430,7 @@ class UIHelperMethodManager{
         // Utilzing jQuery for the click event
         //https://www.w3schools.com/jquery/jquery_events.asp
 
+        // https://www.youtube.com/watch?v=3oOKAJTD2F8 - queryselectorall tutorial
 
         const switcher = document.querySelector(".registertoggle")
         const forms = [...document.querySelectorAll("form")]
@@ -462,6 +464,7 @@ class UIHelperMethodManager{
         )
     }
     dealWithLogoutBtnClick = () =>  {
+        // https://www.youtube.com/watch?v=3oOKAJTD2F8 - queryselectorall tutorial
         // Utilzing jQuery for the click event
         //https://www.w3schools.com/jquery/jquery_events.asp
 
@@ -493,6 +496,7 @@ class UIHelperMethodManager{
         // Make the possible users HTML templates
         let possible_users_html_templates = users.map(user => this.createPossibleConversationUserTemplateHTML(user)).join("")
 
+        // https://www.youtube.com/watch?v=3oOKAJTD2F8 - queryselectorall tutorial
         // Fill In Potential People Conversation List With User Templates
         document.querySelector('.potentialUserConversationListContainerInner') ? 
         document.querySelector('.potentialUserConversationListContainerInner').innerHTML = `
@@ -501,6 +505,7 @@ class UIHelperMethodManager{
         ` : 
         null
         
+        // https://www.youtube.com/watch?v=3oOKAJTD2F8 - queryselectorall tutorial
         // Display the Possible List Container
         document.querySelector('.potentialUserConversationListContainerOuter')?.classList.add('displayGrid');
 
@@ -557,6 +562,7 @@ class ValidationHelperMethodManager {
             </div>
             `
         }
+        // https://www.youtube.com/watch?v=3oOKAJTD2F8 - queryselectorall tutorial
         document.querySelector(".patients") ? document.querySelector(".patients").innerHTML = login_buttons_container_html : null
     }
     static checkUserLoggedInIDAgainstPeopleInvolvedInConversation = (senderId , receiverId) =>{
@@ -672,6 +678,7 @@ class FrontEndUI {
 
             // Login User form DB
             user_manager.readSingleUser(userLoggingIn)
+            user_manager.readSingleGoogleUser();
 
 
         })
@@ -697,7 +704,8 @@ class FrontEndUI {
     }
 
     dealWithFormRegister = () => {
-        
+
+        // https://www.youtube.com/watch?v=3oOKAJTD2F8 - queryselectorall tutorial
         // Utilzing jQuery for the click event
         //https://www.w3schools.com/jquery/jquery_events.asp
         // Get the form Register and deal With Submit 
@@ -781,6 +789,8 @@ class FrontEndUI {
         // Check LoginStatus and deal With Login Buttons
         ValidationHelperMethodManager.checkLoginButtonChange();
         ui_helper_manager.dealWithLogoutBtnClick();
+
+        user_manager.readSingleGoogleUser();
     }
 
     // ______________ Support Page Functions End ________________
