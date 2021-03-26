@@ -67,6 +67,8 @@ class UserManager{
         }
     }
 
+    // google strategy OAuth
+    // https://www.youtube.com/watch?v=Jgc4SP6fDOs
     // google OAuth user
     readSingleGoogleUser = async () => {
         try {
@@ -86,6 +88,23 @@ class UserManager{
         }
     }
 
+    readSingleUserById = async userId => {
+        try {
+            // Error handling
+            let errors = [];
+            userId = userId  ?? errors.push("Sender is not valid");
+
+            if(errors.length !== 0) return 
+
+            let {data: foundUser} = await axios.get(`${local_server_url}users/${userId}`)
+
+            return foundUser
+
+        } catch (error) {
+            console.log(error)
+        }
+    
+    }
     
     updateSingleUser = (userId , updatedData) => {
 
@@ -93,6 +112,7 @@ class UserManager{
     deleteSingleUser = userId => {
 
     }
+
 }
 
 // https://www.youtube.com/watch?v=v2tJ3nzXh8I
@@ -175,31 +195,32 @@ class ConversationManager{
 
 class MessageManager{
     // creating a new message and posting it to the server and into the database
-    createMessage = async (sender_id, senderName, messages = []) => {
-        
-
+    createMessage = async (sender_id, conversation_id, messageContent) => {
         try {
             // Error handling
             let errors = [];
-            e.target.value = e.target?.value ?? errors.push("Please send a valid message");
+            sender_id = sender_id ?? errors.push("Please have a valid sender id")
+            conversation_id = conversation_id ?? errors.push("Please send a valid message");
 
             if(errors.length !== 0) return
 
-            // make the conversation object 
+            let userFound = await user_manager.readSingleUserById(sender_id)
+
+            // make the sender object for the message
+            let senderObject = {
+                "senderName": userFound.name,
+                "senderId": sender_id
+            }
+
+            // make the Message object 
             let messageObject = {
-                Sender: sender_id,
-                SenderName: senderName,
-                Content: messages
+                "sender": senderObject,
+                "Content": messageContent
             }
 
             // pass the object to the new message route on our backend
-            let {data: {_id: message_id}} = await axios.post(`${local_server_url}conversations/${conversation_id}/new_message`, messageObject)
+            await axios.post(`${local_server_url}conversations/${conversation_id}/new_message`, messageObject)
             
-            // checking the message id is not null
-            ValidationHelperMethodManager.checkMessageIdIsValid(message_id)
-
-            // returning the id to deal with new conversation
-            return message_id
 
         } catch (error) {
             console.log(error)
@@ -264,9 +285,9 @@ class UIHelperMethodManager{
         <div class="message_content_container">
         ${messageHTMLTemplates}
         </div>
-        <div class="new_messagecontainer" data-id="${conversation_id}">
+        <div class="new_messagecontainer">
             <input type="textbox" name="" id="">
-            <button class="submit-btn">Send Message</button>
+            <button class="submit-btn newmessage_btn" data-id="${conversation_id}">Send Message</button>
         </div>
         `
     }
@@ -299,6 +320,15 @@ class UIHelperMethodManager{
                 // Fill The message Container
                 ui_helper_manager.fillMessageContainerWithConversationRelatedMsgs(conversation_related_messages)
 
+                // Deal with New Message Button Click
+                $('.newmessage_btn').click(e => {
+
+                    // get textbox content for our new message
+                    const textboxContent = ValidationHelperMethodManager.checkMessageContentIsNotNull(e.target.previousElementSibling.value)
+
+                    // Deal with send new message click
+                    message_manager.createMessage(sessionStorage.getItem("userId"),e.target.dataset.id, textboxContent)
+                })
             })
         })
     }
@@ -448,6 +478,13 @@ class UIHelperMethodManager{
         // Display the Possible List Container
         document.querySelector('.potentialUserConversationListContainerOuter')?.classList.add('displayGrid');
 
+        // Detecting and closing popup when click outside
+        $(document).click(e => {
+            if(e.target?.classList?.contains('potentialUserConversationListContainerOuter')) {
+                e.target?.classList.remove('displayGrid');
+            }
+        })
+
     }
 
     createPossibleConversationUserTemplateHTML = potential_user => {
@@ -503,8 +540,8 @@ class ValidationHelperMethodManager {
         return conversation_id !== null ? conversation_id : alert("Please try again, we couldn't create a conversation")
     }
 
-    static checkMessageBoxIsNotNull = message_content => {
-        return message_content !== null ? message_content : alert("Please try again, there was no content in the message")
+    static checkMessageContentIsNotNull = message_content => {
+        return message_content && message_content.length > 0 ? message_content : alert("Please try again, there was no content in the message")
     }
 }
 
@@ -634,35 +671,38 @@ class FrontEndUI {
     dealWithFormRegister = () => {
         
         // Get the form Register and deal With Submit 
-        const formRegister = document.querySelector(".formRegister");
-        $(formRegister).submit(e => {
+        const registerForms = [...document.querySelectorAll(".formRegister")];
+        registerForms.map(registerForm => 
+            $(registerForm).submit(e => {
 
-            // Prevent Default Behavoiur of form
-            e.preventDefault();
-            e.stopPropagation();
+                // Prevent Default Behavoiur of form
+                e.preventDefault();
+                e.stopPropagation();
 
-            // Get the form's values 
-            const formData = GeneralHelperMethodManager.getFormDataFromForm(formRegister);
+                // Get the form's values 
+                const formData = GeneralHelperMethodManager.getFormDataFromForm(registerForm);
 
-            // Make new User Object 
-            const newUser = {
-                "name": formData.get('name'),
-                "email": formData.get('email'),
-                "password": formData.get('password'),
-                "password2": formData.get('password2'),
-                "userType": e.target.dataset.job,
-                "conversations": []
-            }
+                // Make new User Object 
+                const newUser = {
+                    "name": formData.get('name'),
+                    "email": formData.get('email'),
+                    "password": formData.get('password'),
+                    "password2": formData.get('password2'),
+                    "userType": e.target.dataset.job,
+                    "conversations": []
+                }
 
-            // Check if age or location is filled out 
-            formData.get("location") !== null ? newUser["location"] = formData.get("location") : null
-            formData.get("age") !== null ? newUser["age"] = formData.get("age") : null
+                // Check if age or location is filled out 
+                formData.get("location") !== null ? newUser["location"] = formData.get("location") : null
+                formData.get("age") !== null ? newUser["age"] = formData.get("age") : null
 
 
-            // Create new User in DB
-            user_manager.createUser(newUser)
+                // Create new User in DB
+                user_manager.createUser(newUser)
 
-        })
+            })
+        )
+        
     }
     // ______________ Register Page Functions End ________________
     
@@ -777,12 +817,6 @@ class FrontEndUI {
         // Deal with conversation click
         ui_helper_manager.dealWithConversationContainerClick()
 
-        // Deal with New Message Button Click
-        $('.new_messagecontainer_btn').click(() => {
-
-            // Deal with send new message click
-
-        })
     }
 
     // ______________ Chat Portal Page Functions End ________________

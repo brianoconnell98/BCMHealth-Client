@@ -77,6 +77,10 @@ Tutorial for registration page switching from patient/physiotherapist view
 https://www.youtube.com/watch?v=L5WWrGMsnpw
 
 
+https://github.com/axios/axios
+the ins and outs of axios - async - await
+
+
 Tutorial https://www.youtube.com/watch?v=6FOq4cUdH8k Used for:
 -registration page linking to database
 -setting up passport
@@ -156,6 +160,17 @@ https://www.youtube.com/watch?v=v2tJ3nzXh8I
 '??' = null or undefined
 '?' = so the code wont crash here if there is no value
 
+
+https://www.youtube.com/watch?v=Jgc4SP6fDOs
+google strategy OAuth
+
+
+https://stackoverflow.com/questions/56896146/cant-get-to-google-login-page-with-passport-and-google-oauth-strategy
+issue with google strategy 
+
+
+https://corsanywhere.herokuapp.com/
+cors policy to help implement the google oauth
 
 Privacy Policy for BCMHealth in accordance with GDPR
 https://www.privacypolicyonline.com/live.php?token=RzUSQo86LNK4Tj3YzUJbjBMfuJLvLJPV
