@@ -7,7 +7,7 @@
 class UserManager{
     createUser = async newUser => {
         try {
-            const {data: createdUser} = await axios.post(`${local_server_url}users`, newUser)
+            const {data: createdUser} = await axios.post(`${heroku_url}users`, newUser)
 
             // Check for success message
             if(createdUser?.success_msg !== undefined) {
@@ -41,7 +41,7 @@ class UserManager{
     // getting all physios and patients
     readAllUsers = async () => {
         try {
-            let {data: users} = await axios.get(`${local_server_url}users`)
+            let {data: users} = await axios.get(`${heroku_url}users`)
             return users
         } catch (error) {
             console.log(error)
@@ -51,7 +51,7 @@ class UserManager{
     // Normal user logging in
     readSingleUser = async userLoggingIn => {
         try {
-            const {data: loggedInUser} = await axios.post(`${local_server_url}users/login`, userLoggingIn)
+            const {data: loggedInUser} = await axios.post(`${heroku_url}users/login`, userLoggingIn)
 
             // Check for and errors
             if(loggedInUser.msg === null) return 
@@ -72,7 +72,7 @@ class UserManager{
     // google OAuth user
     readSingleGoogleUser = async () => {
         try {
-            const {data: loggedInGoogleUser} = await axios.get(`${local_server_url}auth/google`)
+            const {data: loggedInGoogleUser} = await axios.get(`${heroku_url}auth/google`)
 
             // Check for and errors
             if(loggedInGoogleUser === null) return
@@ -96,7 +96,7 @@ class UserManager{
 
             if(errors.length !== 0) return 
 
-            let {data: foundUser} = await axios.get(`${local_server_url}users/${userId}`)
+            let {data: foundUser} = await axios.get(`${heroku_url}users/${userId}`)
 
             return foundUser
 
@@ -138,7 +138,7 @@ class ConversationManager{
             }
 
             // pass the object to the new conversation route on our backend
-            let {data: {_id: conversation_id}} = await axios.post(`${local_server_url}conversations/new_conversation`, conversationObject)
+            let {data: {_id: conversation_id}} = await axios.post(`${heroku_url}conversations/new_conversation`, conversationObject)
             
             // checking the conversation id is not null
             ValidationHelperMethodManager.checkConversationIdIsValid(conversation_id)
@@ -154,7 +154,7 @@ class ConversationManager{
     // getting all conversations from the database
     readAllConversations = async () => {
         try {
-            let {data: conversations} = await axios.get(`${local_server_url}conversations`)
+            let {data: conversations} = await axios.get(`${heroku_url}conversations`)
             return conversations
         } catch (error) {
             console.log(error)
@@ -170,7 +170,7 @@ class ConversationManager{
             if(errors.length !== 0) return 
 
             // Getting the messages related to the conversation selected by related id
-            const {data:conversation_messages_found} = await axios.get(`${local_server_url}conversations/${conversationId}`);
+            const {data:conversation_messages_found} = await axios.get(`${heroku_url}conversations/${conversationId}`);
 
             // Returning the messages related to the conversation
             return conversation_messages_found
@@ -219,7 +219,7 @@ class MessageManager{
             }
 
             // pass the object to the new message route on our backend
-            await axios.post(`${local_server_url}conversations/${conversation_id}/new_message`, messageObject)
+            await axios.post(`${heroku_url}conversations/${conversation_id}/new_message`, messageObject)
             
 
         } catch (error) {
@@ -230,7 +230,7 @@ class MessageManager{
     // getting all the messages
     readAllMessages = async () =>  {
         try {
-            let {data: conversations} = await axios.get(`${local_server_url}conversations`)
+            let {data: conversations} = await axios.get(`${heroku_url}conversations`)
             const messages = conversations.map(conversation => conversation.Messages)
             return messages
         } catch (error) {
