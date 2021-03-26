@@ -470,7 +470,7 @@ class UIHelperMethodManager{
         // Fill In Potential People Conversation List With User Templates
         document.querySelector('.potentialUserConversationListContainerInner') ? 
         document.querySelector('.potentialUserConversationListContainerInner').innerHTML = `
-        <h1>Select From the Following Users</h1>
+        <h1>Select From the Following Users - Patients/Physiotherapists</h1>
         ${possible_users_html_templates}
         ` : 
         null
