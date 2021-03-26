@@ -513,7 +513,7 @@ class GeneralHelperMethodManager {
 
 
 class ValidationHelperMethodManager {
-    static checkLoginRedirect = () => sessionStorage.getItem('userId') === null ? window.location=`${local_client_url}login.html` : null
+    static checkLoginRedirect = () => sessionStorage.getItem('userId') === null ? window.location=`${netlify_url}login.html` : null
     static checkLoginButtonChange = () => {
         let login_buttons_container_html = "";
         if(sessionStorage.getItem('userId') === null ) {

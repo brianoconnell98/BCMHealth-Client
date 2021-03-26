@@ -176,6 +176,7 @@ cors policy to help implement the google oauth
 Cors Policy Issues
 https://stackoverflow.com/questions/62091171/how-to-fix-cors-issue-in-netlify
 https://cors-anywhere.herokuapp.com/
+https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141#43881141
 
 Privacy Policy for BCMHealth in accordance with GDPR
 https://www.privacypolicyonline.com/live.php?token=RzUSQo86LNK4Tj3YzUJbjBMfuJLvLJPV
