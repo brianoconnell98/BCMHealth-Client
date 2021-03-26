@@ -173,6 +173,19 @@ https://corsanywhere.herokuapp.com/
 cors policy to help implement the google oauth
 
 
+https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial
+axios tutorial
+
+
+// https://www.youtube.com/watch?v=3oOKAJTD2F8 
+queryselectorall tutorial
+
+
+https://www.youtube.com/watch?v=UeXDAu7SdmY 
+https://www.youtube.com/watch?v=ecWxI0_UfAA
+switch statement to determine window location
+
+
 Cors Policy Issues
 https://stackoverflow.com/questions/62091171/how-to-fix-cors-issue-in-netlify
 https://cors-anywhere.herokuapp.com/

@@ -4,6 +4,7 @@
 
 // ``
 
+// https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial    
 class UserManager{
     createUser = async newUser => {
         try {
@@ -38,6 +39,8 @@ class UserManager{
         }
     }
 
+    // https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial  
+
     // getting all physios and patients
     readAllUsers = async () => {
         try {
@@ -47,6 +50,8 @@ class UserManager{
             console.log(error)
         }
     }
+
+    // https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial  
 
     // Normal user logging in
     readSingleUser = async userLoggingIn => {
@@ -66,6 +71,9 @@ class UserManager{
             console.log(error)
         }
     }
+
+
+    // https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial  
 
     // google strategy OAuth
     // https://www.youtube.com/watch?v=Jgc4SP6fDOs
@@ -115,6 +123,8 @@ class UserManager{
 
 }
 
+
+// https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial  
 // https://www.youtube.com/watch?v=v2tJ3nzXh8I
 // '??' = null or undefined
 // '?' = so the code wont crash here if there is no value
@@ -137,6 +147,7 @@ class ConversationManager{
                 Messages: messages
             }
 
+            // https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial  
             // pass the object to the new conversation route on our backend
             let {data: {_id: conversation_id}} = await axios.post(`${local_server_url}conversations/new_conversation`, conversationObject)
             
@@ -151,6 +162,7 @@ class ConversationManager{
         }
     }
 
+    // https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial  
     // getting all conversations from the database
     readAllConversations = async () => {
         try {
@@ -169,6 +181,7 @@ class ConversationManager{
 
             if(errors.length !== 0) return 
 
+            // https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial  
             // Getting the messages related to the conversation selected by related id
             const {data:conversation_messages_found} = await axios.get(`${local_server_url}conversations/${conversationId}`);
 
@@ -194,6 +207,8 @@ class ConversationManager{
 }
 
 class MessageManager{
+
+// https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial  
     // creating a new message and posting it to the server and into the database
     createMessage = async (sender_id, conversation_id, messageContent) => {
         try {
@@ -227,6 +242,7 @@ class MessageManager{
         }
     }
 
+    // https://www.youtube.com/watch?v=6LyagkoRWYA - axios tutorial  
     // getting all the messages
     readAllMessages = async () =>  {
         try {
@@ -304,6 +320,7 @@ class UIHelperMethodManager{
     }
 
     dealWithConversationContainerClick = () => {
+        // https://www.youtube.com/watch?v=3oOKAJTD2F8 - queryselectorall tutorial
         // getting the conversation containers
         const conversationContainers = [...document.querySelectorAll(".conversation_templatecontainer")];
         
@@ -335,6 +352,7 @@ class UIHelperMethodManager{
 
 
     dealWithConversationUserButtonClick = () => {
+        // https://www.youtube.com/watch?v=3oOKAJTD2F8 - queryselectorall tutorial
         // Retrieving all conversation user buttons
         const conversationUserButtons = [...document.querySelectorAll(".potential_conversationUser")];
         
@@ -407,6 +425,11 @@ class UIHelperMethodManager{
     }
 
     dealWithToggleButtons = () => {
+
+        // Utilzing jQuery for the click event
+        //https://www.w3schools.com/jquery/jquery_events.asp
+
+
         const switcher = document.querySelector(".registertoggle")
         const forms = [...document.querySelectorAll("form")]
         const toggleButtons = [...document.querySelectorAll(".toggleregister_btn")];
@@ -439,6 +462,9 @@ class UIHelperMethodManager{
         )
     }
     dealWithLogoutBtnClick = () =>  {
+        // Utilzing jQuery for the click event
+        //https://www.w3schools.com/jquery/jquery_events.asp
+
         const logout_btn = document.querySelector(".logoutbtn")
         $(logout_btn).click(() => {
             GeneralHelperMethodManager.removeLoginStatus();
@@ -490,8 +516,8 @@ class UIHelperMethodManager{
     createPossibleConversationUserTemplateHTML = potential_user => {
         return `
             <div class="potential_conversationUser" data-id="${potential_user._id}">
-                <h3>${potential_user.name}</h3>
-                <h4>(${potential_user.userType})</h4>
+                Name: <h3>${potential_user.name}</h3>
+                User Type: <h4>(${potential_user.userType})</h4>
             </div>
         `
     }
@@ -624,6 +650,8 @@ class FrontEndUI {
     }
     dealWithFormLogin = () => {
         
+        // Utilzing jQuery for the click event
+        //https://www.w3schools.com/jquery/jquery_events.asp
         // Get the form Register and deal With Submit 
         const loginForms = [...document.querySelectorAll(".formLogin")];
         loginForms.map(loginForm =>
@@ -670,6 +698,8 @@ class FrontEndUI {
 
     dealWithFormRegister = () => {
         
+        // Utilzing jQuery for the click event
+        //https://www.w3schools.com/jquery/jquery_events.asp
         // Get the form Register and deal With Submit 
         const registerForms = [...document.querySelectorAll(".formRegister")];
         registerForms.map(registerForm => 
@@ -868,6 +898,9 @@ message_manager = new MessageManager(),
 conversation_manager = new ConversationManager(),
 user_manager = new UserManager(),
 ui_helper_manager = new UIHelperMethodManager();
+
+// https://www.youtube.com/watch?v=UeXDAu7SdmY - switch statement to determine window location
+// https://www.youtube.com/watch?v=ecWxI0_UfAA
 
 // Initialization Methods
 // This reads the window and if it includes the text it redirects you to that window location
