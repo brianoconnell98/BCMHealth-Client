@@ -624,15 +624,16 @@ class FrontEndUI {
     dealWithFormLogin = () => {
         
         // Get the form Register and deal With Submit 
-        const formRegister = document.querySelector(".formLogin");
-        $(formRegister).submit(e => {
+        const loginForms = [...document.querySelectorAll(".formLogin")];
+        loginForms.map(loginForm =>
+        $(loginForm).submit(e => {
 
             // Prevent Default Behavoiur of form
             e.preventDefault();
             e.stopPropagation();
 
             // Get the form's values 
-            const formData = GeneralHelperMethodManager.getFormDataFromForm(formRegister);
+            const formData = GeneralHelperMethodManager.getFormDataFromForm(loginForm);
 
             // Make new User Object 
             const userLoggingIn = {
@@ -645,9 +646,7 @@ class FrontEndUI {
 
 
         })
-
-         // Login User from OAuth
-
+        )
     }
     // ______________ Login Page Functions End ________________
 

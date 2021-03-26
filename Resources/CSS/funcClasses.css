@@ -17,11 +17,13 @@
 .messageRight {
     background: lightpink;
     margin-left: auto;
+    z-index: -1;
 }
 
 .messageLeft {
     background: white;
     border: 3px solid lightpink;
+    z-index: -1;
 }
 
 .newMessageFlash{
