@@ -545,7 +545,7 @@ class ValidationHelperMethodManager {
     static checkLoginRedirect = () => sessionStorage.getItem('userId') === null ? window.location=`${netlify_url}login.html` : null
     static checkLoginButtonChange = () => {
         let login_buttons_container_html = "";
-        if(sessionStorage.getItem('userId') === null || sessionStorage.getItem('google') === null ) {
+        if(sessionStorage.getItem('userId') === null && sessionStorage.getItem('google') === null ) {
             login_buttons_container_html =  `
             <div class="patients">
                 <a class="loginbtn live" href="login.html">Login</a>
