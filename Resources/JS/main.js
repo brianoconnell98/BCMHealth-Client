@@ -519,7 +519,7 @@ class UIHelperMethodManager{
     createPossibleConversationUserTemplateHTML = potential_user => {
         return `
             <div class="potential_conversationUser" data-id="${potential_user._id}">
-                <h3>${potential_user.name}-</h3><h4>(${potential_user.userType})</h4>
+                <h3>${potential_user.name}-</h3><h4>${potential_user.userType !== undefined ? (potential_user.userType) : "Patient"}</h4>
             </div>
         `
     }
