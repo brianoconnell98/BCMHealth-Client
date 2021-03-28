@@ -786,7 +786,7 @@ class FrontEndUI {
         ui_helper_manager.dealWithLogoutBtnClick();
         
         // checking for google user signed in
-        if(GeneralHelperMethodManager.getQueryParamsFromURL.get('google')) {
+        if(GeneralHelperMethodManager.getQueryParamsFromURL().get('google')) {
             sessionStorage.setItem('google', true)
             return
         }
