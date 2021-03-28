@@ -82,9 +82,6 @@ class UserManager{
         try {
             const {data: loggedInGoogleUser} = await axios.get(`${local_server_url}auth/google`)
 
-            // Check for and errors
-            if(loggedInGoogleUser === null) return
-
             // Set the Session Key for the user
             GeneralHelperMethodManager.setLoginStatus(loggedInGoogleUser.user._id)
 
@@ -783,14 +780,18 @@ class FrontEndUI {
 
     // ______________ Support Page Functions Start ________________
     supportPageInit = () => {
-        // Check if user is logged in 
-        ValidationHelperMethodManager.checkLoginRedirect()
-
+        
         // Check LoginStatus and deal With Login Buttons
         ValidationHelperMethodManager.checkLoginButtonChange();
         ui_helper_manager.dealWithLogoutBtnClick();
+        
+        // checking for google user signed in
+        if(GeneralHelperMethodManager.getQueryParamsFromURL.get('google')) return
 
-        user_manager.readSingleGoogleUser();
+        // Check if user is logged in 
+        ValidationHelperMethodManager.checkLoginRedirect()
+
+        // user_manager.readSingleGoogleUser();
     }
 
     // ______________ Support Page Functions End ________________
