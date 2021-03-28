@@ -164,3 +164,9 @@
     justify-content: center;
 }
 
+.potential_conversationUser {
+    display: flex;
+    width: 20vw;
+    justify-content: space-around;
+    align-items: center;
+}
