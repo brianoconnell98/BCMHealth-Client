@@ -786,7 +786,10 @@ class FrontEndUI {
         ui_helper_manager.dealWithLogoutBtnClick();
         
         // checking for google user signed in
-        if(GeneralHelperMethodManager.getQueryParamsFromURL.get('google')) return
+        if(GeneralHelperMethodManager.getQueryParamsFromURL.get('google')) {
+            sessionStorage.setItem('google', true)
+            return
+        }
 
         // Check if user is logged in 
         ValidationHelperMethodManager.checkLoginRedirect()
@@ -835,12 +838,15 @@ class FrontEndUI {
 
         });
 
-        // Check if user is logged in 
-        ValidationHelperMethodManager.checkLoginRedirect()
-
         // Check LoginStatus and deal With Login Buttons
         ValidationHelperMethodManager.checkLoginButtonChange();
         ui_helper_manager.dealWithLogoutBtnClick();
+
+        // If google user isn't true then check login redirect
+        if(!sessionStorage.getItem('google')) {
+            // Check if user is logged in 
+            ValidationHelperMethodManager.checkLoginRedirect()
+        }
 
         // Populate conversation container with the conversations
         ui_helper_manager.fillConversationContainerWithConversations(FrontEndUI.front_end_ui.conversations)
